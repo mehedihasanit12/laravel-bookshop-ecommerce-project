@@ -1,20 +1,6 @@
 services:
   - type: web
     name: laravel-bookshop-ecommerce-project
-    runtime: php
-    plan: free
-    envVars:
-      - key: APP_ENV
-        value: production
-      - key: APP_KEY
-        value: "base64:mxYAk/gObpHEOeiG8BSAQYzw6hwbLTP2XKzU9DcgG3U="
-      - key: DB_CONNECTION
-        value: pgsql
-      - key: DATABASE_URL
-        value: postgresql://mehedihasanit12:M5oKemTJNmft4xT8yKJfYDAl7CAKP4bC@dpg-ctvtolt2ng1s7389mfug-a/laravel_bookshop_db
-    buildCommand: |
-      apt-get update -y && apt-get install -y composer
-      composer install --no-dev --optimize-autoloader
-      php artisan migrate --force
-      php artisan storage:link
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
+    env: docker
+    buildCommand: docker build -t laravel-app .
+    startCommand: docker run -d -p 9000:9000 laravel-app
