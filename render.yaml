@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: laravel-bookshop-ecommerce-project
-    env: docker
-    buildCommand: docker build -t laravel-app .
-    startCommand: docker run -d -p 9000:9000 laravel-app
