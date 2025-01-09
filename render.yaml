@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: laravel-app
+    runtime: docker
+    plan: free
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        value: "base64:your-app-key"
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DATABASE_URL
+        value: your-database-url
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan migrate --force
+    startCommand: php artisan serve --host 0.0.0.0 --port 10000
