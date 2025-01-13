@@ -35,7 +35,6 @@ class Category extends Model
 
         if (file_exists($request->file('image')))
         {
-            unlink(self::$category->image);
             self::$imageUrl = Category::getImageUrl($request);
         }
         else

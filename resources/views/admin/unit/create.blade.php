@@ -10,41 +10,41 @@
         <div class="col-xxl">
             <div class="card mb-6">
                 <div class="card-header d-flex align-items-center justify-content-between border-bottom">
-                    <h5 class="mb-0">Add Category Form</h5> <small class="text-muted float-end">Default label</small>
+                    <h5 class="mb-0">Add Unit Form</h5> <small class="text-muted float-end">Default label</small>
                 </div>
                 <div class="card-body pt-5">
                     <p class="text-center text-success">{{session('message')}}</p>
-                    <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('unit.store')}}" method="POST">
                         @csrf
                         <div class="row mb-4">
-                            <label class="col-sm-2 col-form-label" for="basic-default-name">Category Name</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Unit Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" id="basic-default-name" placeholder="Enter Category Name" />
+                                <input type="text" class="form-control" id="basic-default-name" name="name" placeholder="Enter Unit Name" />
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Unit Code</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="basic-default-name" name="code" placeholder="Enter Unit Code" />
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label class="col-sm-2" for="basic-default-company">Publication Status</label>
                             <div class="col-sm-10">
-                                <label for=""><input type="radio" name="status" checked value="1" /> Published</label>
-                                <label for=""><input type="radio" name="status" value="0" /> Unpublished</label>
+                                <label for=""><input type="radio" name="status" checked value="1"/> Published</label>
+                                <label for=""><input type="radio" name="status" value="0"/> Unpublished</label>
                             </div>
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-sm-2 col-form-label" for="basic-default-phone">Category Image</label>
+                            <label class="col-sm-2 col-form-label" for="basic-default-message">Unit Description</label>
                             <div class="col-sm-10">
-                                <input type="file" id="basic-default-phone" class="form-control" name="image" />
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label class="col-sm-2 col-form-label" for="basic-default-message">Category Description</label>
-                            <div class="col-sm-10">
-                                <textarea id="basic-default-message" class="form-control" name="description" placeholder="Category Description" ></textarea>
+                                <textarea id="basic-default-message" class="form-control" placeholder="Unit Description" name="description"></textarea>
                             </div>
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary">Create New Category</button>
+                                <button type="submit" class="btn btn-primary">Create New Unit</button>
                             </div>
                         </div>
                     </form>
@@ -57,3 +57,4 @@
 
 
 @endsection
+

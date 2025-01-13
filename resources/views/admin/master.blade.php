@@ -146,12 +146,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="https://demos.themeselection.com/materio-bootstrap-html-admin-template/html/front-pages/landing-page.html" class="menu-link" target="_blank">
+                            <a href="{{route('sub-category.create')}}" class="menu-link">
                                 <div>Add Sub Category</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="https://demos.themeselection.com/materio-bootstrap-html-admin-template/html/front-pages/pricing-page.html" class="menu-link" target="_blank">
+                            <a href="{{route('sub-category.index')}}" class="menu-link">
                                 <div>Manage Sub Category</div>
                             </a>
                         </li>
@@ -167,13 +167,13 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="app-ecommerce-dashboard.html" class="menu-link">
+                            <a href="{{route('brand.create')}}" class="menu-link">
                                 <div>Add Brand</div>
                             </a>
                         </li>
 
                         <li class="menu-item">
-                            <a href="app-ecommerce-dashboard.html" class="menu-link">
+                            <a href="{{route('brand.index')}}" class="menu-link">
                                 <div>Manage Brand</div>
                             </a>
                         </li>
@@ -189,12 +189,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="app-academy-dashboard.html" class="menu-link">
+                            <a href="{{route('unit.create')}}" class="menu-link">
                                 <div>Add Unit</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="app-academy-course.html" class="menu-link">
+                            <a href="{{route('unit.index')}}" class="menu-link">
                                 <div>Manage Unit</div>
                             </a>
                         </li>
@@ -208,12 +208,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="app-logistics-dashboard.html" class="menu-link">
+                            <a href="{{route('product.create')}}" class="menu-link">
                                 <div>Add Product</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="app-logistics-fleet.html" class="menu-link">
+                            <a href="{{route('product.index')}}" class="menu-link">
                                 <div>Manage Product</div>
                             </a>
                         </li>

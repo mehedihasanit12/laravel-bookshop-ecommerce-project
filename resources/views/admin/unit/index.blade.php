@@ -11,34 +11,34 @@
                     <table class="table table-bordered text-center">
                         <thead>
                         <tr>
-                            <th>SL NO</th>
+                            <th>SL</th>
                             <th>Name</th>
+                            <th>Code</th>
                             <th>Description</th>
-                            <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($categories as $category)
+
+                        @foreach($units as $unit)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->description}}</td>
+                                <td>{{$unit->name}}</td>
+                                <td>{{$unit->code}}</td>
+                                <td>{{$unit->description}}</td>
+                                <td>{{$unit->status == 1 ? 'Published' : 'Unpublished'}}</td>
                                 <td>
-                                    <img src="{{asset($category->image)}}" height="70" width="70" alt="">
-                                </td>
-                                <td>{{$category->status == 0 ? 'Unpublished' : 'Published'}}</td>
-                                <td>
-                                    <a href="{{route('category.edit', ['id' => $category->id])}}" class="btn btn-success">
+                                    <a href="{{route('unit.edit', ['id' => $unit->id])}}" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="{{route('category.delete', ['id' => $category->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
+                                    <a href="{{route('unit.delete', ['id' => $unit->id])}}" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
+
                         @endforeach
                         </tbody>
                     </table>

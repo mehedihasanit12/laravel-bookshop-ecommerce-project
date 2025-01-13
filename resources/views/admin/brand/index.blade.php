@@ -21,20 +21,20 @@
                         </thead>
 
                         <tbody>
-                        @foreach($categories as $category)
+                        @foreach($brands as $brand)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->description}}</td>
+                                <td>{{$brand->name}}</td>
+                                <td>{{$brand->description}}</td>
                                 <td>
-                                    <img src="{{asset($category->image)}}" height="70" width="70" alt="">
+                                    <img src="{{asset($brand->image)}}" height="70" width="70" alt="">
                                 </td>
-                                <td>{{$category->status == 0 ? 'Unpublished' : 'Published'}}</td>
+                                <td>{{$brand->status == 0 ? 'Unpublished' : 'Published'}}</td>
                                 <td>
-                                    <a href="{{route('category.edit', ['id' => $category->id])}}" class="btn btn-success">
+                                    <a href="{{route('brand.edit', ['id' => $brand->id])}}" class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="{{route('category.delete', ['id' => $category->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
+                                    <a href="{{route('brand.delete', ['id' => $brand->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
