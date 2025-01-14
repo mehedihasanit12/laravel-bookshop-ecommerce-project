@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="{{asset('/')}}admin/assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css">
     <!-- Page CSS -->
 
+    <link rel="stylesheet" href="{{asset('/')}}admin/assets/vendor/summernote/summernote.min.css" />
 
     <!-- Helpers -->
     <script src="{{asset('/')}}admin/assets/vendor/js/helpers.js"></script>
@@ -847,6 +848,41 @@
 <!-- Page JS -->
 <script src="{{asset('/')}}admin/assets/js/dashboards-analytics.js"></script>
 <script src="{{asset('/')}}admin/assets/js/tables-datatables-basic.js"></script>
+
+<script src="{{asset('/')}}admin/assets/vendor/summernote/summernote.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 350,
+        });
+    });
+</script>
+
+<script>
+
+    function getSubCategoryByCategory($categoryId) {
+        $.ajax({
+            type: 'GET',
+            url: '{{route('get-sub-category-by-category')}}',
+            data: {'id' : $categoryId},
+            DataType: 'JSON',
+            success: function (response) {
+                console.log(response);
+
+                var option = '';
+                option += '<option value="">--Select Product Sub Category--</option>';
+
+                $.each(response, function (key, value) {
+                    option += '<option value=" '+value.id+' "> '+value.name+' </option>';
+                })
+                $('#subCategory').empty();
+                $('#subCategory').append(option);
+            }
+        })
+    }
+
+</script>
 
 </body>
 </html>

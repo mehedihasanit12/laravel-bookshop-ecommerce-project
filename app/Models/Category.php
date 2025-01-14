@@ -12,7 +12,7 @@ class Category extends Model
     {
         self::$image = $request->file('image');
         self::$imageName = self::$image->getClientOriginalName();
-        self::$directory = 'upload/category-image/';
+        self::$directory = 'upload/category-images/';
         self::$image->move(self::$directory, self::$imageName);
         self::$imageUrl = self::$directory.self::$imageName;
         return self::$imageUrl;
@@ -53,11 +53,17 @@ class Category extends Model
     {
         self::$category = Category::find($id);
 
+        $subCategory = SubCategory::where('category_id', $id)->first();
+
+        $subCategoryId = $subCategory->id;
+
         if (self::$category->image)
         {
             unlink(self::$category->image);
         }
 
         self::$category->delete();
+
+        return $subCategoryId;
     }
 }

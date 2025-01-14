@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -36,7 +37,8 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        Category::deleteCategory($id);
+        $subCategoryId = Category::deleteCategory($id);
+        SubCategory::deleteSubCategory($subCategoryId);
         return back()->with('delete-message', 'Category Deleted Successfully');
     }
 
