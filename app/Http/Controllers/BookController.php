@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
+use App\Models\Author;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\OtherImage;
-use App\Models\Product;
+use App\Models\Publisher;
 use App\Models\SubCategory;
-use App\Models\Unit;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
-        return view('admin.product.index', ['products' => Product::all()]);
+        return view('admin.book.index', ['books' => Book::all()]);
     }
 
     public function create()
     {
-        return view('admin.product.create', [
+        return view('admin.book.create', [
             'categories' => Category::all(),
             'sub_categories' => SubCategory::all(),
-            'brands' => Brand::all(),
-            'units' => Unit::all()
+            'publishers' => Publisher::all(),
+            'authors' => Author::all()
         ]);
     }
 
@@ -37,20 +37,29 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $id = Product::newProduct($request);
+        $id = Book::newBook($request);
 
         OtherImage::newOtherImage($id, $request->file('other_image'));
-        return back()->with('message', 'New Product save successfully');
+        return back()->with('message', 'New Book save successfully');
     }
 
     public function edit($id)
     {
-        return view('admin.product.edit', [
+        return view('admin.book.edit', [
             'categories' => Category::all(),
             'sub_categories' => SubCategory::all(),
-            'brands' => Brand::all(),
-            'units' => Unit::all(),
-            'product' => Product::find($id)
+            'publishers' => Publisher::all(),
+            'authors' => Author::all(),
+            'books' => Book::find($id),
+            'others_images' => OtherImage::all()
         ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        if (file_exists($request->file('other_image')))
+        {
+            OtherImage::updateOtherImage($id, $request->file('other_image'));
+        }
     }
 }

@@ -84,4 +84,9 @@ class Product extends Model
         }
         self::$product->delete();
     }
+
+    public function otherImages()
+    {
+        return $this->hasMany(OtherImage::class);
+    }
 }

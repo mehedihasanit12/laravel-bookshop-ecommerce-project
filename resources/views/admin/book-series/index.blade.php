@@ -11,9 +11,9 @@
                     <table class="table table-bordered text-center">
                         <thead>
                         <tr>
-                            <th>SL</th>
+                            <th>SL NO</th>
+                            <th>Author Name</th>
                             <th>Name</th>
-                            <th>Code</th>
                             <th>Description</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -21,24 +21,22 @@
                         </thead>
 
                         <tbody>
-
-                        @foreach($units as $unit)
+                        @foreach($book_seriess as $book_series)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$unit->name}}</td>
-                                <td>{{$unit->code}}</td>
-                                <td>{{$unit->description}}</td>
-                                <td>{{$unit->status == 1 ? 'Published' : 'Unpublished'}}</td>
+                                <td>{{$book_series->author->name}}</td>
+                                <td>{{$book_series->name}}</td>
+                                <td>{{$book_series->description}}</td>
+                                <td>{{$book_series->status == 0 ? 'Unpublished' : 'Published'}}</td>
                                 <td>
-                                    <a href="{{route('unit.edit', ['id' => $unit->id])}}" class="btn btn-success btn-sm">
+                                    <a href="{{route('book-series.edit', ['id' => $book_series->id])}}" class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="{{route('unit.delete', ['id' => $unit->id])}}" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">
+                                    <a href="{{route('book-series.delete', ['id' => $book_series->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-
                         @endforeach
                         </tbody>
                     </table>

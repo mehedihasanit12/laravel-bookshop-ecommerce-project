@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('other_images', function (Blueprint $table) {
+        Schema::create('book_series', function (Blueprint $table) {
             $table->id();
-            $table->integer('book_id');
-            $table->text('image');
+            $table->integer('author_id');
+            $table->string('name');
+            $table->text('description');
+            $table->tinyInteger('status');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('other_images');
+        Schema::dropIfExists('book_series');
     }
 };

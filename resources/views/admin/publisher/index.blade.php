@@ -14,27 +14,27 @@
                             <th>SL NO</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Image</th>
+                            <th>Logo</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($brands as $brand)
+                        @foreach($publishers as $publisher)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$brand->name}}</td>
-                                <td>{{$brand->description}}</td>
+                                <td>{{$publisher->name}}</td>
+                                <td>{{$publisher->description}}</td>
                                 <td>
-                                    <img src="{{asset($brand->image)}}" height="70" width="70" alt="">
+                                    <img src="{{asset($publisher->image)}}" height="70" width="70" alt="">
                                 </td>
-                                <td>{{$brand->status == 0 ? 'Unpublished' : 'Published'}}</td>
+                                <td>{{$publisher->status == 0 ? 'Unpublished' : 'Published'}}</td>
                                 <td>
-                                    <a href="{{route('brand.edit', ['id' => $brand->id])}}" class="btn btn-success">
+                                    <a href="{{route('publisher.edit', ['id' => $publisher->id])}}" class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="{{route('brand.delete', ['id' => $brand->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
+                                    <a href="{{route('publisher.delete', ['id' => $publisher->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

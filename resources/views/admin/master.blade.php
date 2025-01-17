@@ -164,18 +164,18 @@
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class='menu-icon tf-icons ri-shopping-bag-3-line'></i>
-                        <div>Brand Module</div>
+                        <div>Publisher Module</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{route('brand.create')}}" class="menu-link">
-                                <div>Add Brand</div>
+                            <a href="{{route('publisher.create')}}" class="menu-link">
+                                <div>Add Publisher</div>
                             </a>
                         </li>
 
                         <li class="menu-item">
-                            <a href="{{route('brand.index')}}" class="menu-link">
-                                <div>Manage Brand</div>
+                            <a href="{{route('publisher.index')}}" class="menu-link">
+                                <div>Manage Publisher</div>
                             </a>
                         </li>
 
@@ -186,17 +186,53 @@
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class='menu-icon tf-icons ri-graduation-cap-line'></i>
-                        <div>Unit Module</div>
+                        <div>Language Module</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{route('unit.create')}}" class="menu-link">
-                                <div>Add Unit</div>
+                            <a href="{{route('language.create')}}" class="menu-link">
+                                <div>Add Language</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{route('unit.index')}}" class="menu-link">
-                                <div>Manage Unit</div>
+                            <a href="{{route('language.index')}}" class="menu-link">
+                                <div>Manage Language</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ri-graduation-cap-line'></i>
+                        <div>Book Series Module</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="{{route('book-series.create')}}" class="menu-link">
+                                <div>Add Book Series</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{route('book-series.index')}}" class="menu-link">
+                                <div>Manage Book Series</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ri-graduation-cap-line'></i>
+                        <div>Author Module</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="{{route('author.create')}}" class="menu-link">
+                                <div>Add Author</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{route('author.index')}}" class="menu-link">
+                                <div>Manage Author</div>
                             </a>
                         </li>
                     </ul>
