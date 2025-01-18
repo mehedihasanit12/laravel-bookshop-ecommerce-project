@@ -258,6 +258,24 @@
                 </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ri-car-line'></i>
+                        <div>Book Module</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="{{route('book.create')}}" class="menu-link">
+                                <div>Add Book</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{route('book.index')}}" class="menu-link">
+                                <div>Manage Book</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class='menu-icon tf-icons ri-bill-line'></i>
                         <div>Order Module</div>
                     </a>

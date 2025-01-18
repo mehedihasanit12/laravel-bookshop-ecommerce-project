@@ -25,7 +25,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$publisher->name}}</td>
-                                <td>{{$publisher->description}}</td>
+                                <td>{!! $publisher->description !!}</td>
                                 <td>
                                     <img src="{{asset($publisher->image)}}" height="70" width="70" alt="">
                                 </td>

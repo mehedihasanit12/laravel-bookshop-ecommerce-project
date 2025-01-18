@@ -64,4 +64,9 @@ class Author extends Model
 
         self::$author->delete();
     }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

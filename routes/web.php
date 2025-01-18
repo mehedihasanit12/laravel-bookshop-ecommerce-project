@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookSeriesController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
@@ -84,5 +85,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/get-sub-category-by-category', [ProductController::class, 'getSubCategoryByCategory'])->name('get-sub-category-by-category');
     Route::post('/product/store', [ProductController::class, 'store'])->name('product.store');
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+
+    Route::get('/book/index', [BookController::class, 'index'])->name('book.index');
+    Route::get('/book/create', [BookController::class, 'create'])->name('book.create');
+    Route::get('/get-sub-category-by-category', [BookController::class, 'getSubCategoryByCategory'])->name('get-sub-category-by-category');
+    Route::post('/book/store', [BookController::class, 'store'])->name('book.store');
+    Route::get('/book/edit/{id}', [BookController::class, 'edit'])->name('book.edit');
+    Route::get('/book/detail/{id}', [BookController::class, 'detail'])->name('book.detail');
+    Route::post('/book/update/{id}', [BookController::class, 'update'])->name('book.update');
+    Route::get('/book/delete/{id}', [BookController::class, 'delete'])->name('book.delete');
 
 });

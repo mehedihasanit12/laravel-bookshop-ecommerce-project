@@ -11,7 +11,8 @@
                         <tr>
                             <th>SL</th>
                             <th>Name</th>
-                            <th>Code</th>
+                            <th>Author</th>
+                            <th>Publisher</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -19,19 +20,20 @@
                         </thead>
 
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($books as $book)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$product->name}}</td>
-                            <td>{{$product->code}}</td>
+                            <td>{{$book->name}}</td>
+                            <td>{{$book->author->name}}</td>
+                            <td>{{$book->publisher->name}}</td>
                             <td>
-                                <img src="{{asset($product->image)}}" height="100" alt="">
+                                <img src="{{asset($book->image)}}" height="100" alt="">
                             </td>
-                            <td>{{$product->status== 1 ? 'Published' : 'Unpublished'}}</td>
+                            <td>{{$book->status== 1 ? 'Published' : 'Unpublished'}}</td>
                             <td>
-                                <a href="" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-                                <a href="{{route('product.edit', ['id' => $product->id])}}" class="btn btn-success"><i class="fa-regular fa-edit"></i></a>
-                                <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                <a href="{{route('book.detail', ['id' => $book->id])}}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                                <a href="{{route('book.edit', ['id' => $book->id])}}" class="btn btn-success"><i class="fa-regular fa-edit"></i></a>
+                                <a href="{{route('book.delete', ['id' => $book->id])}}" onclick=" return confirm('Are you sure to delete this!')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

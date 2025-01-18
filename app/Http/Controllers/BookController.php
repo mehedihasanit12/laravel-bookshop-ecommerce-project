@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Language;
 use App\Models\OtherImage;
 use App\Models\Publisher;
 use App\Models\SubCategory;
@@ -23,7 +24,8 @@ class BookController extends Controller
             'categories' => Category::all(),
             'sub_categories' => SubCategory::all(),
             'publishers' => Publisher::all(),
-            'authors' => Author::all()
+            'authors' => Author::all(),
+            'languages' => Language::all()
         ]);
     }
 
@@ -50,16 +52,32 @@ class BookController extends Controller
             'sub_categories' => SubCategory::all(),
             'publishers' => Publisher::all(),
             'authors' => Author::all(),
-            'books' => Book::find($id),
-            'others_images' => OtherImage::all()
+            'book' => Book::find($id),
+            'others_images' => OtherImage::all(),
+            'languages' => Language::all()
         ]);
     }
 
     public function update(Request $request, $id)
     {
+        Book::updateBook($request, $id);
         if (file_exists($request->file('other_image')))
         {
             OtherImage::updateOtherImage($id, $request->file('other_image'));
         }
+
+        return redirect('/book/index')->with('message', 'Book Update Successfully.');
+    }
+
+    public function delete($id)
+    {
+        Book::deleteBook($id);
+        OtherImage::deleteOtherImage($id);
+        return back()->with('delete-message', 'Product info deleted successfully');
+    }
+
+    public function detail($id)
+    {
+        return view('admin.book.detail', ['book' => Book::find($id)]);
     }
 }

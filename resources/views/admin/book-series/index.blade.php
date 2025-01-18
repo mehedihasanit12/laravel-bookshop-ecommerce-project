@@ -26,7 +26,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$book_series->author->name}}</td>
                                 <td>{{$book_series->name}}</td>
-                                <td>{{$book_series->description}}</td>
+                                <td>{!! $book_series->description !!}</td>
                                 <td>{{$book_series->status == 0 ? 'Unpublished' : 'Published'}}</td>
                                 <td>
                                     <a href="{{route('book-series.edit', ['id' => $book_series->id])}}" class="btn btn-success">

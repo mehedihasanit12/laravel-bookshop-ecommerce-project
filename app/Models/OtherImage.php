@@ -12,7 +12,7 @@ class OtherImage extends Model
     {
         self::$image = $image;
         self::$imageName = self::$image->getClientOriginalName();
-        self::$directory = 'upload/product-other-images/';
+        self::$directory = 'upload/book-other-images/';
         self::$image->move(self::$directory, self::$imageName);
         self::$imageUrl = self::$directory.self::$imageName;
         return self::$imageUrl;
@@ -23,7 +23,7 @@ class OtherImage extends Model
         foreach ($images as $image)
         {
             self::$otherImage = new OtherImage();
-            self::$otherImage->product_id = $id;
+            self::$otherImage->book_id = $id;
             self::$otherImage->image = self::getImageUrl($image);
             self::$otherImage->save();
         }

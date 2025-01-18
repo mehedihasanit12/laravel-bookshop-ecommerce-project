@@ -366,7 +366,20 @@
                                 </ul>
                             </li>
                             <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="{{route('product-category')}}">All Category</a></li>
+                            <li><a href="{{route('product-category')}}">Category</a></li>
+                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>All Category</span></a>
+                                <ul class="sub-menu">
+                                    @foreach($categories as $category)
+                                    <li><a href="javascript:void(0);">{{$category->name}} <i class="fa fa-angle-right"></i></a>
+                                        <ul class="sub-menu">
+                                            @foreach($category->subCategory as $sub_category)
+                                            <li><a href="javascript:void(0);">{{$sub_category->name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </li>
                         </ul>
                         </ul>
                         <div class="dz-social-icon">
