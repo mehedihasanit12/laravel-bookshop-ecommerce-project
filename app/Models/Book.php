@@ -41,6 +41,7 @@ class Book extends Model
         self::$book->publisher_id = $request->publisher_id;
         self::$book->author_id = $request->author_id;
         self::$book->language_id = $request->language_id;
+        self::$book->book_series_id = $request->book_series_id;
         self::$book->name = $request->name;
         self::$book->code = $request->code;
         self::$book->regular_price = $request->regular_price;
@@ -88,6 +89,7 @@ class Book extends Model
         self::$book->publisher_id = $request->publisher_id;
         self::$book->author_id = $request->author_id;
         self::$book->language_id = $request->language_id;
+        self::$book->book_series_id = $request->book_series_id;
         self::$book->name = $request->name;
         self::$book->code = $request->code;
         self::$book->regular_price = $request->regular_price;

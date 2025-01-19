@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\BookSeries;
 use App\Models\Category;
 use App\Models\Language;
 use App\Models\OtherImage;
@@ -25,6 +26,7 @@ class BookController extends Controller
             'sub_categories' => SubCategory::all(),
             'publishers' => Publisher::all(),
             'authors' => Author::all(),
+            'book_seriess' => BookSeries::all(),
             'languages' => Language::all()
         ]);
     }

@@ -61,6 +61,17 @@
                             </div>
                         </div>
                         <div class="row mb-4">
+                            <label class="col-sm-2 col-form-label" for="basic-default-name">Book Series Name</label>
+                            <div class="col-sm-10">
+                                <select name="book_series_id" class="form-control" id="">
+                                    <option value="0">None</option>
+                                    @foreach($book_seriess as $book_series)
+                                        <option value="{{$book_series->id}}">{{$book_series->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
                             <label class="col-sm-2 col-form-label" for="basic-default-name">Language Name</label>
                             <div class="col-sm-10">
                                 <select name="language_id" class="form-control" id="">

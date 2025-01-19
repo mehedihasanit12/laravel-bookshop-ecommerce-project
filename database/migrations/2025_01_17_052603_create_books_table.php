@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('publisher_id');
             $table->integer('author_id');
             $table->integer('language_id');
+            $table->integer('book_series_id');
             $table->string('name');
             $table->string('code')->unique();
             $table->float('regular_price');
