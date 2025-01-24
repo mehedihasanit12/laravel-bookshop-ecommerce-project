@@ -11,7 +11,7 @@
                     <h1>Cart</h1>
                     <nav aria-label="breadcrumb" class="breadcrumb-row">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"> Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}"> Home</a></li>
                             <li class="breadcrumb-item">Cart</li>
                         </ul>
                     </nav>
@@ -26,6 +26,9 @@
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-lg-12">
+                        <form action="{{route('cart.update')}}" method="POST">
+                            @csrf
+                        <p class="text-center text-success">{{session('message')}}</p>
                         <div class="table-responsive">
                             <table class="table check-tbl">
                                 <thead>
@@ -39,81 +42,29 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($cart_items as $key => $cart_item)
                                 <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt=""></td>
-                                    <td class="product-item-name">Battle Drive</td>
-                                    <td class="product-item-price">$28.00</td>
+                                    <td class="product-item-img"><img src="{{asset($cart_item->options->image)}}" alt=""></td>
+                                    <td class="product-item-name"><a href="{{route('product-detail', ['id' => $cart_item->id])}}">{{$cart_item->name}}</a></td>
+                                    <td class="product-item-price">BDT {{$cart_item->price}}/-</td>
                                     <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical2" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
+                                            <div class="quantity btn-quantity style-1 me-3">
+                                                <input id="demo_vertical2" type="hidden" value="{{$cart_item->rowId}}" name="qty[{{$key}}][rowId]"/>
+                                                <input id="demo_vertical2" type="text" value="{{$cart_item->qty}}" name="qty[{{$key}}][qty]"/>
+                                            </div>
                                     </td>
-                                    <td class="product-item-totle">$28.00</td>
+                                    <td class="product-item-totle">BDT {{$cart_item->price * $cart_item->qty}}/-</td>
                                     <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
                                 </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book2.jpg" alt=""></td>
-                                    <td class="product-item-name">Home</td>
-                                    <td class="product-item-price">$28.00</td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical3" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">$28.00</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book4.jpg" alt=""></td>
-                                    <td class="product-item-name">Such A Fun Age</td>
-                                    <td class="product-item-price">$28.00</td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical4" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">$28.00</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book1.jpg" alt=""></td>
-                                    <td class="product-item-name">Real Life</td>
-                                    <td class="product-item-price">$28.00</td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical5" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">$28.00</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book6.jpg" alt=""></td>
-                                    <td class="product-item-name">Cat Adventure</td>
-                                    <td class="product-item-price">$28.00</td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical6" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">$28.00</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt=""></td>
-                                    <td class="product-item-name">Take Out Tango</td>
-                                    <td class="product-item-price">$28.00</td>
-                                    <td class="product-item-quantity">
-                                        <div class="quantity btn-quantity style-1 me-3">
-                                            <input id="demo_vertical7" type="text" value="1" name="demo_vertical2"/>
-                                        </div>
-                                    </td>
-                                    <td class="product-item-totle">$28.00</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
+                        <div class="row">
+                            <label for="" class="col-md-10"></label>
+                            <button class="btn btn-primary btnhover mt-3 col-md-2 me-2" type="submit">Update Cart</button>
+                        </div>
+                        </form>
                     </div>
 
                 </div>

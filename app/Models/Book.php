@@ -147,5 +147,9 @@ class Book extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
 
 }

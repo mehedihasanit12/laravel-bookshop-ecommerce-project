@@ -9,11 +9,11 @@
                     <div class="col">
                         <div class="dz-box">
                             <div class="dz-media">
-                                <img src="{{asset('/')}}website/images/books/book16.png" alt="book">
+                                <img src="{{asset($book->image)}}" alt="book">
                             </div>
                             <div class="dz-content">
                                 <div class="dz-header">
-                                    <h3 class="title">Think and Grow Rich</h3>
+                                    <h3 class="title">{{$book->name}}</h3>
                                     <div class="shop-item-rating">
                                         <div class="d-lg-flex d-sm-inline-flex d-flex align-items-center">
                                             <ul class="dz-rating">
@@ -27,10 +27,10 @@
                                         </div>
                                         <div class="social-area">
                                             <ul class="dz-social-icon style-3">
-                                                <li><a href="https://www.facebook.com/dexignzone" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                                <li><a href="https://twitter.com/dexignzones" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-                                                <li><a href="https://www.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-                                                <li><a href="https://www.google.com/intl/en-GB/gmail/about/" target="_blank"><i class="fa-solid fa-envelope"></i></a></li>
+                                                <li><a href="" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                                <li><a href="" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+                                                <li><a href="" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                                <li><a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -40,28 +40,30 @@
                                         <ul class="book-info">
                                             <li>
                                                 <div class="writer-info">
-                                                    <img src="{{asset('/')}}website/images/profile2.jpg" alt="book">
+                                                    <img src="{{asset($book->author->image)}}" alt="book">
                                                     <div>
-                                                        <span>Writen by</span>Kevin Smiley
+                                                        <span>Writen by</span>{{$book->author->name}}
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li><span>Publisher</span>Printarea Studios</li>
-                                            <li><span>Year</span>2019</li>
+                                            <li><span>Publisher</span>{{$book->publisher->name}}</li>
+                                            <li><span>Year</span>{{$book->published_date}}</li>
                                         </ul>
                                     </div>
-                                    <p class="text-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-                                    <p class="text-2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem</p>
+                                    <p class="text-1">{{$book->short_description}}</p>
+
                                     <div class="book-footer">
                                         <div class="price">
-                                            <h5>$54.78</h5>
-                                            <p class="p-lr10">$70.00</p>
+                                            <h5>BDT {{$book->selling_price}}</h5>
+                                            <p class="p-lr10">BDT {{$book->regular_price}}</p>
                                         </div>
+                                        <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
+                                            @csrf
                                         <div class="product-num">
                                             <div class="quantity btn-quantity style-1 me-3">
-                                                <input id="demo_vertical2" type="text" value="1" name="demo_vertical2"/>
+                                                <input id="demo_vertical2" type="number" value="1" name="qty"/>
                                             </div>
-                                            <a href="{{route('cart.index')}}" class="btn btn-primary btnhover btnhover2"><i class="flaticon-shopping-cart-1"></i> <span>Add to cart</span></a>
+                                            <button type="submit" class="btn btn-primary btnhover btnhover2"><i class="flaticon-shopping-cart-1"></i> <span>Add to cart</span></button>
                                             <div class="bookmark-btn style-1 d-none d-sm-block">
                                                 <input class="form-check-input" type="checkbox" id="flexCheckDefault1">
                                                 <label class="form-check-label" for="flexCheckDefault1">
@@ -69,6 +71,7 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +83,7 @@
                     <div class="col-xl-8">
                         <div class="product-description tabs-site-button">
                             <ul class="nav nav-tabs">
-                                <li><a data-bs-toggle="tab" href="#graphic-design-1" class="active">Details Product</a></li>
+                                <li><a data-bs-toggle="tab" href="#graphic-design-1" class="active">Details Book</a></li>
                                 <li><a data-bs-toggle="tab" href="#developement-1">Customer Reviews</a></li>
                             </ul>
                             <div class="tab-content">
@@ -88,53 +91,50 @@
                                     <table class="table border book-overview">
                                         <tr>
                                             <th>Book Title</th>
-                                            <td>Think and Grow Rich</td>
+                                            <td>{{$book->name}}</td>
                                         </tr>
                                         <tr>
                                             <th>Author</th>
-                                            <td>Napoleon Rich</td>
+                                            <td>{{$book->author->name}}</td>
                                         </tr>
                                         <tr>
                                             <th>ISBN</th>
-                                            <td>121341381648 (ISBN13: 121341381648)</td>
+                                            <td>{{$book->isbn}}</td>
                                         </tr>
                                         <tr>
                                             <th>Ediiton Language</th>
-                                            <td>English</td>
+                                            <td>{{$book->language->name}}</td>
                                         </tr>
                                         <tr>
                                             <th>Book Format</th>
-                                            <td>Paperback, 450 Pages</td>
+                                            <td>{{$book->format==0 ? 'Hardcover' : 'Paperback'}}</td>
                                         </tr>
                                         <tr>
                                             <th>Date Published</th>
-                                            <td>August 10th 2019</td>
+                                            <td>{{$book->published_date}}</td>
                                         </tr>
                                         <tr>
                                             <th>Publisher</th>
-                                            <td>Wepress Inc.</td>
+                                            <td>{{$book->publisher->name}}</td>
                                         </tr>
                                         <tr>
                                             <th>Pages</th>
-                                            <td>520</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Lesson</th>
-                                            <td>7</td>
+                                            <td>{{$book->pages}}</td>
                                         </tr>
                                         <tr>
                                             <th>Topic</th>
-                                            <td>360</td>
+                                            <td>
+                                                @foreach(json_decode($book->tags) as $tag)
+                                                {{$tag}},
+                                                @endforeach
+                                            </td>
                                         </tr>
                                         <tr class="tags">
                                             <th>Tags</th>
                                             <td>
-                                                <a href="javascript:void(0);" class="badge">Drama</a>
-                                                <a href="javascript:void(0);" class="badge">Advanture</a>
-                                                <a href="javascript:void(0);" class="badge">Survival</a>
-                                                <a href="javascript:void(0);" class="badge">Biography</a>
-                                                <a href="javascript:void(0);" class="badge">Trending2024</a>
-                                                <a href="javascript:void(0);" class="badge">Bestseller</a>
+                                                @foreach(json_decode($book->tags) as $tag)
+                                                <a href="javascript:void(0);" class="badge">{{$tag}}</a>
+                                                @endforeach
                                             </td>
                                         </tr>
                                     </table>
@@ -243,13 +243,14 @@
                         <div class="widget">
                             <h4 class="widget-title">Related Books</h4>
                             <div class="row">
+                                @foreach($book->category->book as $related_book)
                                 <div class="col-xl-12 col-lg-6">
                                     <div class="dz-shop-card style-5">
                                         <div class="dz-media">
-                                            <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="">
+                                            <a href="{{route('product-detail', ['id' => $related_book->id])}}"><img src="{{asset($related_book->image)}}" alt=""></a>
                                         </div>
                                         <div class="dz-content">
-                                            <h5 class="subtitle">Terrible Madness</h5>
+                                            <h5 class="subtitle"><a href="{{route('product-detail', ['id' => $related_book->id])}}">{{$related_book->name}}</a></h5>
                                             <ul class="dz-tags">
                                                 <li>THRILLE,</li>
                                                 <li>DRAMA,</li>
@@ -263,46 +264,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-lg-6">
-                                    <div class="dz-shop-card style-5">
-                                        <div class="dz-media">
-                                            <img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt="">
-                                        </div>
-                                        <div class="dz-content">
-                                            <h5 class="subtitle">Battle Drive</h5>
-                                            <ul class="dz-tags">
-                                                <li>THRILLE,</li>
-                                                <li>DRAMA,</li>
-                                                <li>HORROR</li>
-                                            </ul>
-                                            <div class="price">
-                                                <span class="price-num">$45.4</span>
-                                                <del>$98.4</del>
-                                            </div>
-                                            <a href="shop-cart.html" class="btn btn-outline-primary btn-sm btnhover btnhover2"><i class="flaticon-shopping-cart-1 me-2"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-lg-6">
-                                    <div class="dz-shop-card style-5 mb-0">
-                                        <div class="dz-media">
-                                            <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="">
-                                        </div>
-                                        <div class="dz-content">
-                                            <h5 class="subtitle">Terrible Madness</h5>
-                                            <ul class="dz-tags">
-                                                <li>THRILLE,</li>
-                                                <li>DRAMA,</li>
-                                                <li>HORROR</li>
-                                            </ul>
-                                            <div class="price">
-                                                <span class="price-num">$45.4</span>
-                                                <del>$98.4</del>
-                                            </div>
-                                            <a href="shop-cart.html" class="btn btn-outline-primary btn-sm btnhover btnhover2"><i class="flaticon-shopping-cart-1 me-2"></i> Add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

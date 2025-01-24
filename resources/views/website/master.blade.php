@@ -259,7 +259,7 @@
                             </li>
                             <li class="sub-menu-down"><a href="javascript:void(0);"><span>Shop</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="{{route('product-category')}}">Shop Grid</a></li>
+                                    <li><a href="">Shop Grid</a></li>
                                     <li><a href="books-grid-view-sidebar.html">Shop Grid Sidebar</a></li>
                                     <li><a href="books-list.html">Shop List</a></li>
                                     <li><a href="books-list-view-sidebar.html">Shop List Sidebar</a></li>
@@ -366,14 +366,14 @@
                                 </ul>
                             </li>
                             <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="{{route('product-category')}}">Category</a></li>
+                            <li><a href="">Category</a></li>
                             <li class="sub-menu-down"><a href="javascript:void(0);"><span>All Category</span></a>
                                 <ul class="sub-menu">
                                     @foreach($categories as $category)
-                                    <li><a href="javascript:void(0);">{{$category->name}} <i class="fa fa-angle-right"></i></a>
+                                    <li><a href="{{route('product-category', ['id' => $category->id])}}">{{$category->name}} <i class="fa fa-angle-right"></i></a>
                                         <ul class="sub-menu">
                                             @foreach($category->subCategory as $sub_category)
-                                            <li><a href="javascript:void(0);">{{$sub_category->name}}</a></li>
+                                            <li><a href="{{route('product-category', ['id' => $sub_category->category_id])}}">{{$sub_category->name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -414,36 +414,9 @@
                 <div class="toggle-items row">
                     <div class="footer-col-book">
                         <ul>
-                            <li><a href="{{route('product-category')}}">Architecture</a></li>
-                            <li><a href="{{route('product-category')}}">Art</a></li>
-                            <li><a href="{{route('product-category')}}">Action</a></li>
-                            <li><a href="{{route('product-category')}}">Biography</a></li>
-                            <li><a href="{{route('product-category')}}">Body, Mind & Spirit</a></li>
-                            <li><a href="{{route('product-category')}}">Business & Economics</a></li>
-                            <li><a href="{{route('product-category')}}">Children Fiction</a></li>
-                            <li><a href="{{route('product-category')}}">Children Non-Fiction</a></li>
-                            <li><a href="{{route('product-category')}}">Comics & Graphics</a></li>
-                            <li><a href="{{route('product-category')}}">Cooking</a></li>
-                            <li><a href="{{route('product-category')}}">Crafts & Hobbies</a></li>
-                            <li><a href="{{route('product-category')}}">Design</a></li>
-                            <li><a href="{{route('product-category')}}">Drama</a></li>
-                            <li><a href="{{route('product-category')}}">Education</a></li>
-                            <li><a href="{{route('product-category')}}">Family & Relationships</a></li>
-                            <li><a href="{{route('product-category')}}">Fiction</a></li>
-                            <li><a href="{{route('product-category')}}">Foreign Language</a></li>
-                            <li><a href="{{route('product-category')}}">Games</a></li>
-                            <li><a href="{{route('product-category')}}">Gardening</a></li>
-                            <li><a href="{{route('product-category')}}">Health & Fitness</a></li>
-                            <li><a href="{{route('product-category')}}">History</a></li>
-                            <li><a href="{{route('product-category')}}">House & Home</a></li>
-                            <li><a href="{{route('product-category')}}">Humor</a></li>
-                            <li><a href="{{route('product-category')}}">Literary Collections</a></li>
-                            <li><a href="{{route('product-category')}}">Mathematics</a></li>
-                            <li><a href="{{route('product-category')}}">Medical</a></li>
-                            <li><a href="{{route('product-category')}}">Nature</a></li>
-                            <li><a href="{{route('product-category')}}">Performing Arts</a></li>
-                            <li><a href="{{route('product-category')}}">Pets</a></li>
-                            <li><a href="{{route('product-category')}}">Show others</a></li>
+                            @foreach($categories as $category)
+                            <li><a href="{{route('product-category', ['id' => $category->id])}}">{{$category->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -492,7 +465,7 @@
                             <li><a href="services.html">Services</a></li>
                             <li><a href="books-detail.html">Book Details</a></li>
                             <li><a href="blog-detail.html">Blog Details</a></li>
-                            <li><a href="{{route('product-category')}}">Shop</a></li>
+                            <li><a href="">Shop</a></li>
                         </ul>
                     </div>
                 </div>

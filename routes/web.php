@@ -17,12 +17,14 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
-Route::get('/product-category', [WebsiteController::class, 'category'])->name('product-category');
-Route::get('/product-detail', [WebsiteController::class, 'product'])->name('product-detail');
+Route::get('/product-category/{id}', [WebsiteController::class, 'category'])->name('product-category');
+Route::get('/product-detail/{id}', [WebsiteController::class, 'product'])->name('product-detail');
 
 //cart
 
 Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('cart.add');
+Route::post('/cart/update/', [CartController::class, 'update'])->name('cart.update');
 
 //checkout
 
