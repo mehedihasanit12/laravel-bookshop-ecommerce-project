@@ -38,6 +38,18 @@ class CartController extends Controller
 
     public function update(Request $request)
     {
-        return $request;
+        foreach ($request->qty as $item)
+        {
+            Cart::update($item['rowId'], $item['qty']);
+        }
+
+        return back()->with('message', 'Bok Cart update successfully.');
+    }
+
+    public function delete($rowId)
+    {
+        Cart::remove($rowId);
+
+        return back()->with('delete-message', 'Book Cart delete successfully.');
     }
 }

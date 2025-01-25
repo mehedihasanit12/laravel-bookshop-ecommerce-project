@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Product;
+use Cart;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -14,7 +15,8 @@ class WebsiteController extends Controller
     {
         return view('website.home.index', [
             'categories' => Category::all(),
-            'authors' => Author::all()
+            'authors' => Author::all(),
+            'cart_items' => Cart::content()
         ]);
     }
 
@@ -30,7 +32,8 @@ class WebsiteController extends Controller
     {
         return view('website.product.index', [
             'categories' => Category::all(),
-            'book' => Book::find($id)
+            'book' => Book::find($id),
+            'cart_items' => Cart::content()
         ]);
     }
 

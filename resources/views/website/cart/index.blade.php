@@ -29,6 +29,7 @@
                         <form action="{{route('cart.update')}}" method="POST">
                             @csrf
                         <p class="text-center text-success">{{session('message')}}</p>
+                        <p class="text-center text-danger">{{session('delete-message')}}</p>
                         <div class="table-responsive">
                             <table class="table check-tbl">
                                 <thead>
@@ -42,6 +43,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php($total = 0)
                                 @foreach($cart_items as $key => $cart_item)
                                 <tr>
                                     <td class="product-item-img"><img src="{{asset($cart_item->options->image)}}" alt=""></td>
@@ -49,13 +51,14 @@
                                     <td class="product-item-price">BDT {{$cart_item->price}}/-</td>
                                     <td class="product-item-quantity">
                                             <div class="quantity btn-quantity style-1 me-3">
-                                                <input id="demo_vertical2" type="hidden" value="{{$cart_item->rowId}}" name="qty[{{$key}}][rowId]"/>
-                                                <input id="demo_vertical2" type="text" value="{{$cart_item->qty}}" name="qty[{{$key}}][qty]"/>
+                                                <input id="" type="hidden" value="{{$cart_item->rowId}}" name="qty[{{$key}}][rowId]"/>
+                                                <input id="demo_vertical2" class="quantity-input" type="text" value="{{$cart_item->qty}}" name="qty[{{$key}}][qty]"/>
                                             </div>
                                     </td>
                                     <td class="product-item-totle">BDT {{$cart_item->price * $cart_item->qty}}/-</td>
-                                    <td class="product-item-close"><a href="javascript:void(0);" class="ti-close"></a></td>
+                                    <td class="product-item-close"><a href="{{route('cart.delete', ['id' => $cart_item->rowId])}}" class="ti-close"></a></td>
                                 </tr>
+                                    @php($total = $total + $cart_item->price * $cart_item->qty)
                                 @endforeach
                                 </tbody>
                             </table>
@@ -105,19 +108,19 @@
                                 <tbody>
                                 <tr>
                                     <td>Order Subtotal</td>
-                                    <td>$125.96</td>
+                                    <td>BDT {{$total}}/-</td>
                                 </tr>
                                 <tr>
                                     <td>Shipping</td>
-                                    <td>Free Shipping</td>
+                                    <td>BDT {{$shipping = 100}}/-</td>
                                 </tr>
                                 <tr>
                                     <td>Coupon</td>
-                                    <td>$28.00</td>
+                                    <td>BDT 0/-</td>
                                 </tr>
                                 <tr>
                                     <td>Total</td>
-                                    <td>$506.00</td>
+                                    <td>BDT {{$total + $shipping}}/-</td>
                                 </tr>
                                 </tbody>
                             </table>

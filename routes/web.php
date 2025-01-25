@@ -25,6 +25,7 @@ Route::get('/product-detail/{id}', [WebsiteController::class, 'product'])->name(
 Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('cart.add');
 Route::post('/cart/update/', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
 
 //checkout
 

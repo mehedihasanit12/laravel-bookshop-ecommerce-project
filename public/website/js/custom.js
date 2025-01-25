@@ -505,22 +505,22 @@ var Bookland = function(){
 	}
 
 	/* handle Bootstrap Touch Spin ============ */
-	var handleBootstrapTouchSpin = function(){
-		if($('#demo_vertical2').length > 0 ) {
-			jQuery('#demo_vertical2').TouchSpin({
-			  verticalbuttons: true,
-			  verticalupclass: 'ti-plus',
-			  verticaldownclass: 'ti-minus'
-			});
-		}
-		if($(".quantity-input").length > 0 ) {
-			jQuery(".quantity-input").TouchSpin({
-			  verticalbuttons: true,
-			  verticalupclass: 'ti-plus',
-			  verticaldownclass: 'ti-minus'
-			});
-		}
-	}
+    var handleBootstrapTouchSpin = function(){
+        if($("input[name='demo_vertical2']").length > 0 ) {
+            jQuery("input[name='demo_vertical2']").TouchSpin({
+                verticalbuttons: true,
+                verticalupclass: 'ti-plus',
+                verticaldownclass: 'ti-minus'
+            });
+        }
+        if($(".quantity-input").length > 0 ) {
+            jQuery(".quantity-input").TouchSpin({
+                verticalbuttons: true,
+                verticalupclass: 'ti-plus',
+                verticaldownclass: 'ti-minus'
+            });
+        }
+    }
 
 	var handleSmartWizard = function(){
 		if(jQuery('#smartwizard').length > 0 ){
@@ -624,7 +624,7 @@ var Bookland = function(){
 			handleFinalCountDown();
 			cartButton();
 			setCurrentYear();
-			handleSupport();
+
 		},
 
 		load:function(){

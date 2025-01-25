@@ -248,7 +248,11 @@
                                         <span class="price-num">BDT {{$book->selling_price}}</span>
                                         <del>BDT {{$book->regular_price}}</del>
                                     </div>
-                                    <a href="shop-cart.html" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
+                                    <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="qty" value="1">
+                                        <button type="submit" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

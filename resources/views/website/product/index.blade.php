@@ -61,7 +61,7 @@
                                             @csrf
                                         <div class="product-num">
                                             <div class="quantity btn-quantity style-1 me-3">
-                                                <input id="demo_vertical2" type="number" value="1" name="qty"/>
+                                                <input id="demo_vertical2" class="quantity-input" type="number" value="1" name="qty"/>
                                             </div>
                                             <button type="submit" class="btn btn-primary btnhover btnhover2"><i class="flaticon-shopping-cart-1"></i> <span>Add to cart</span></button>
                                             <div class="bookmark-btn style-1 d-none d-sm-block">
