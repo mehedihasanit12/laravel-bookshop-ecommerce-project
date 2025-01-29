@@ -52,4 +52,21 @@ class CartController extends Controller
 
         return back()->with('delete-message', 'Book Cart delete successfully.');
     }
+
+    public function directAddToCart($id)
+    {
+        $this->book = Book::find($id);
+
+        Cart::add([
+            'id' => $this->book->id,
+            'name' => $this->book->name,
+            'qty' => 1,
+            'price' => $this->book->selling_price,
+            'options' => [
+                'image' => $this->book->image
+            ]
+        ]);
+
+        return redirect('/cart/index')->with('message', 'Book Cart add successfully.');
+    }
 }

@@ -77,13 +77,16 @@
                                 <button type="button" class="nav-link box cart-btn">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                                     @php($count = 0)
-                                    @foreach($cart_items as $cart_item)
-                                        @php($count = $loop->iteration)
-                                    @endforeach
+                                    @if(isset($cart_items))
+                                        @foreach($cart_items as $cart_item)
+                                            @php($count = $loop->iteration)
+                                        @endforeach
+                                    @endif
                                     <span class="badge">{{$count}}</span>
                                 </button>
                                 <ul class="dropdown-menu cart-list">
                                     @php($total = 0)
+                                    @if(isset($cart_items))
                                     @foreach($cart_items as $cart_item)
                                     <li class="cart-item">
                                         <div class="media">
@@ -101,6 +104,7 @@
                                     </li>
                                       @php($total = $total + $cart_item->subtotal)
                                     @endforeach
+                                    @endif
                                     <li class="cart-item text-center">
                                         <h6 class="text-secondary">Total = {{$total}}/-</h6>
                                     </li>
@@ -110,18 +114,19 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown profile-dropdown  ms-4">
+                            @if(Session::get('id'))
+                                <li class="nav-item dropdown profile-dropdown  ms-4">
                                 <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{asset('/')}}website/images/profile1.jpg" alt="/">
+                                    <img src="{{asset(Session::get('image'))}}" alt="/">
                                     <div class="profile-info">
-                                        <h6 class="title">Brian</h6>
-                                        <span>info@gmail.com</span>
+                                        <h6 class="title">{{Session::get('name')}}</h6>
+                                        <span>{{Session::get('email')}}</span>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu py-0 dropdown-menu-end">
                                     <div class="dropdown-header">
-                                        <h6 class="m-0">Brian</h6>
-                                        <span>info@gmail.com</span>
+                                        <h6 class="m-0">{{Session::get('name')}}</h6>
+                                        <span>{{Session::get('email')}}</span>
                                     </div>
                                     <div class="dropdown-body">
                                         <a href="my-profile.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
@@ -144,10 +149,21 @@
                                         </a>
                                     </div>
                                     <div class="dropdown-footer">
-                                        <a class="btn btn-primary w-100 btnhover btn-sm" href="shop-login.html">Log Out</a>
+                                        <a class="btn btn-primary w-100 btnhover btn-sm" href="{{route('customer.customer-logout')}}">Log Out</a>
                                     </div>
                                 </div>
                             </li>
+                            @else
+                                <li class="nav-item dropdown profile-dropdown  ms-4">
+                                    <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a href="{{route('customer-login')}}" class="btn btn-primary w-100 btnhover btn-sm me-3">Login</a>
+                                        <a href="{{route('customer-registration')}}" class="btn btn-primary w-100 btnhover btn-sm">Registration</a>
+                                        <div class="profile-info">
+
+                                        </div>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

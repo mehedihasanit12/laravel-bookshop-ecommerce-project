@@ -125,7 +125,7 @@
                                             <th>Topic</th>
                                             <td>
                                                 @foreach(json_decode($book->tags) as $tag)
-                                                {{$tag}},
+                                                    {{$tag}},
                                                 @endforeach
                                             </td>
                                         </tr>
@@ -252,15 +252,19 @@
                                         <div class="dz-content">
                                             <h5 class="subtitle"><a href="{{route('product-detail', ['id' => $related_book->id])}}">{{$related_book->name}}</a></h5>
                                             <ul class="dz-tags">
-                                                <li>THRILLE,</li>
-                                                <li>DRAMA,</li>
-                                                <li>HORROR</li>
+                                                @foreach(json_decode($related_book->tags) as $key => $tag)
+                                                    @if($key < 3)
+                                                        <li>{{$tag}}{{ $key < 2 ? ',' : '' }}</li>
+                                                    @else
+                                                        <?php break; ?>
+                                                    @endif
+                                                @endforeach
                                             </ul>
                                             <div class="price">
-                                                <span class="price-num">$45.4</span>
-                                                <del>$98.4</del>
+                                                <span class="price-num">BDT {{$related_book->selling_price}}</span>
+                                                <del>{{$related_book->regular_price}}</del>
                                             </div>
-                                            <a href="shop-cart.html" class="btn btn-outline-primary btn-sm btnhover btnhover2"><i class="flaticon-shopping-cart-1 me-2"></i> Add to cart</a>
+                                            <a href="{{route('cart.direct-add', ['id' => $related_book->id])}}" class="btn btn-outline-primary btn-sm btnhover btnhover2"><i class="flaticon-shopping-cart-1 me-2"></i> Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

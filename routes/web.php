@@ -26,6 +26,7 @@ Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('cart.add');
 Route::post('/cart/update/', [CartController::class, 'update'])->name('cart.update');
 Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+Route::get('/cart/direct-add/{id}', [CartController::class, 'directAddToCart'])->name('cart.direct-add');
 
 //checkout
 
@@ -35,6 +36,9 @@ Route::get('/checkout/index', [CheckoutController::class, 'index'])->name('check
 
 Route::get('/customer/login', [CustomerAuthController::class, 'index'])->name('customer-login');
 Route::get('/customer/registration', [CustomerAuthController::class, 'registration'])->name('customer-registration');
+Route::post('/customer/new-customer', [CustomerAuthController::class, 'newCustomer'])->name('customer.new-customer');
+Route::post('/customer/customer-login', [CustomerAuthController::class, 'customerLogin'])->name('customer.customer-login');
+Route::get('/customer/customer-logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.customer-logout');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {

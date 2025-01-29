@@ -10,7 +10,7 @@
                     <h1>Registration</h1>
                     <nav aria-label="breadcrumb" class="breadcrumb-row">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html"> Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}"> Home</a></li>
                             <li class="breadcrumb-item">Registration</li>
                         </ul>
                     </nav>
@@ -26,26 +26,35 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="login-area">
-                            <form>
+                            <form action="{{route('customer.new-customer')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <h4 class="text-secondary">Registration</h4>
                                 <p class="font-weight-600">If you don't have an account with us, please Registration.</p>
                                 <div class="mb-4">
-                                    <label class="label-title">Username *</label>
-                                    <input name="dzName" required="" class="form-control" placeholder="Your Username" type="text">
+                                    <label class="label-title">Name *</label>
+                                    <input name="name" required class="form-control" placeholder="Your Name" type="text">
                                 </div>
                                 <div class="mb-4">
                                     <label class="label-title">Email address *</label>
-                                    <input name="dzName" required="" class="form-control" placeholder="Your Email address" type="email">
+                                    <input name="email" required class="form-control" placeholder="Your Email address" type="email">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="label-title">Mobile number *</label>
+                                    <input name="mobile" required class="form-control" placeholder="Your Mobile number" type="number">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="label-title">Your Image *</label>
+                                    <input name="image" class="form-control" type="file">
                                 </div>
                                 <div class="mb-4">
                                     <label class="label-title">Password *</label>
-                                    <input name="dzName" required="" class="form-control " placeholder="Type Password" type="password">
+                                    <input name="password" required class="form-control " placeholder="Type Password" type="password">
                                 </div>
                                 <div class="mb-5">
                                     <small>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="privacy-policy.html">privacy policy</a>.</small>
                                 </div>
                                 <div class="text-left">
-                                    <button class="btn btn-primary btnhover w-100 me-2">Register</button>
+                                    <button type="submit" class="btn btn-primary btnhover w-100 me-2">Register</button>
                                 </div>
                             </form>
                         </div>
