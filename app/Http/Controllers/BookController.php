@@ -56,7 +56,8 @@ class BookController extends Controller
             'authors' => Author::all(),
             'book' => Book::find($id),
             'others_images' => OtherImage::all(),
-            'languages' => Language::all()
+            'languages' => Language::all(),
+            'book_seriess' => BookSeries::all()
         ]);
     }
 

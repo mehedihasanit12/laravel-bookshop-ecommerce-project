@@ -243,7 +243,9 @@
                         <div class="widget">
                             <h4 class="widget-title">Related Books</h4>
                             <div class="row">
-                                @foreach($book->category->book as $related_book)
+                                @foreach($book->category->book as $key => $related_book)
+                                    @if($related_book->status == 1)
+                                        @if($key <=2)
                                 <div class="col-xl-12 col-lg-6">
                                     <div class="dz-shop-card style-5">
                                         <div class="dz-media">
@@ -268,6 +270,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                        @else
+                                            <?php break; ?>
+                                        @endif
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
