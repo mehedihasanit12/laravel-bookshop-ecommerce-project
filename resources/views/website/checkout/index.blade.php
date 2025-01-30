@@ -34,35 +34,22 @@
                                 <tr>
                                     <th>IMAGE</th>
                                     <th>PRODUCT NAME</th>
+                                    <th>PRODUCT QTY</th>
+                                    <th>PRODUCT PRICE</th>
                                     <th>TOTAL</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php($sum = 0)
+                                @foreach($cart_items as $cart_item)
                                 <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt=""></td>
-                                    <td class="product-item-name">Prduct Item 5</td>
-                                    <td class="product-price">$28.00</td>
+                                    <td class="product-item-img"><img src="{{asset($cart_item->options->image)}}" alt=""></td>
+                                    <td class="product-item-name">{{$cart_item->name}}</td>
+                                    <td class="product-price">{{$cart_item->qty}}</td>
+                                    <td class="product-price">{{$cart_item->price}}</td>
+                                    <td class="product-price">{{$cart_item->price * $cart_item->qty}}</td>
                                 </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book2.jpg" alt=""></td>
-                                    <td class="product-item-name">Prduct Item 4</td>
-                                    <td class="product-price">$36.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book4.jpg" alt=""></td>
-                                    <td class="product-item-name">Prduct Item 3</td>
-                                    <td class="product-price">$28.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt=""></td>
-                                    <td class="product-item-name">Prduct Item 2</td>
-                                    <td class="product-price">$36.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="product-item-img"><img src="{{asset('/')}}website/images/books/grid/book1.jpg" alt=""></td>
-                                    <td class="product-item-name">Prduct Item 1</td>
-                                    <td class="product-price">$28.00</td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
