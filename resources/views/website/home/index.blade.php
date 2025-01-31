@@ -1,5 +1,18 @@
 @extends('website.master')
 
+@section('page-loader')
+    <div id="loading-area" class="preloader-wrapper-1">
+        <div class="preloader-inner">
+            <div class="preloader-shade"></div>
+            <div class="preloader-wrap"></div>
+            <div class="preloader-wrap wrap2"></div>
+            <div class="preloader-wrap wrap3"></div>
+            <div class="preloader-wrap wrap4"></div>
+            <div class="preloader-wrap wrap5"></div>
+        </div>
+    </div>
+@endsection
+
 @section('body')
 
     <div class="page-content bg-white">
@@ -15,21 +28,21 @@
                                     <div class="col-md-6">
                                         <div class="swiper-content">
                                             <div class="content-info">
-                                                <h6 class="sub-title" data-swiper-parallax="-10">BEST MANAGEMENT </h6>
-                                                <h1 class="title mb-0" data-swiper-parallax="-20">Think and Grow Rich</h1>
+                                                <h6 class="sub-title" data-swiper-parallax="-10">{{$banner_book_one->category->name}} </h6>
+                                                <h1 class="title mb-0" data-swiper-parallax="-20">{{$banner_book_one->name}}</h1>
                                                 <ul class="dz-tags" data-swiper-parallax="-30">
-                                                    <li><a href="javascript:void(0);">Napoleon Hill</a></li>
-                                                    <li><a href="javascript:void(0);">Business & Strategy</a></li>
+                                                    <li><a href="javascript:void(0);">{{$banner_book_one->author->name}}</a></li>
+                                                    <li><a href="javascript:void(0);">{{ json_decode($banner_book_one->tags)[0] ?? '' }}</a></li>
                                                 </ul>
-                                                <p class="text mb-0" data-swiper-parallax="-40">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                <p class="text mb-0" data-swiper-parallax="-40">{{$banner_book_one->short_description}}</p>
                                                 <div class="price" data-swiper-parallax="-50">
-                                                    <span class="price-num">$17.2</span>
-                                                    <del>$15.25</del>
-                                                    <span class="badge badge-danger">15% OFF</span>
+                                                    <span class="price-num">BDT {{$banner_book_one->selling_price}}</span>
+                                                    <del>BDT {{$banner_book_one->regular_price}}</del>
+                                                    <span class="badge badge-danger">{{$banner_book_one->discount}}% OFF</span>
                                                 </div>
                                                 <div class="content-btn" data-swiper-parallax="-60">
-                                                    <a class="btn btn-primary btnhover" href="books-grid-view.html">Buy Now</a>
-                                                    <a class="btn border btnhover ms-4 text-white" href="books-detail.html">See Details</a>
+                                                    <a class="btn btn-primary btnhover" href="{{route('cart.direct-add', ['id' => $banner_book_one->id])}}">Buy Now</a>
+                                                    <a class="btn border btnhover ms-4 text-white" href="{{route('product-detail', ['id' => $banner_book_one->id])}}">See Details</a>
                                                 </div>
                                             </div>
                                             <div class="partner">
@@ -59,21 +72,21 @@
                                     <div class="col-md-6">
                                         <div class="swiper-content">
                                             <div class="content-info">
-                                                <h6 class="sub-title" data-swiper-parallax="-10">BEST SELLER</h6>
-                                                <h1 class="title mb-0" data-swiper-parallax="-20">Pushing Clouds</h1>
+                                                <h6 class="sub-title" data-swiper-parallax="-10">{{$banner_book_two->category->name}} </h6>
+                                                <h1 class="title mb-0" data-swiper-parallax="-20">{{$banner_book_two->name}}</h1>
                                                 <ul class="dz-tags" data-swiper-parallax="-30">
-                                                    <li><a href="javascript:void(0);">Napoleon Hill</a></li>
-                                                    <li><a href="javascript:void(0);">Business & Strategy</a></li>
+                                                    <li><a href="javascript:void(0);">{{$banner_book_two->author->name}}</a></li>
+                                                    <li><a href="javascript:void(0);">{{ json_decode($banner_book_two->tags)[0] ?? '' }}</a></li>
                                                 </ul>
-                                                <p class="text mb-0" data-swiper-parallax="-40">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+                                                <p class="text mb-0" data-swiper-parallax="-40">{{$banner_book_two->short_description}}</p>
                                                 <div class="price" data-swiper-parallax="-50">
-                                                    <span class="price-num">$9.5</span>
-                                                    <del>$12.0</del>
-                                                    <span class="badge badge-danger">20% OFF</span>
+                                                    <span class="price-num">BDT {{$banner_book_two->selling_price}}</span>
+                                                    <del>BDT {{$banner_book_two->regular_price}}</del>
+                                                    <span class="badge badge-danger">{{$banner_book_two->discount}}% OFF</span>
                                                 </div>
-                                                <div class="content-btn" data-swiper-parallax="-50">
-                                                    <a class="btn btn-primary btnhover" href="books-grid-view.html">Buy Now</a>
-                                                    <a class="btn border btnhover ms-4 text-white" href="books-detail.html">See Details</a>
+                                                <div class="content-btn" data-swiper-parallax="-60">
+                                                    <a class="btn btn-primary btnhover" href="{{route('cart.direct-add', ['id' => $banner_book_two->id])}}">Buy Now</a>
+                                                    <a class="btn border btnhover ms-4 text-white" href="{{route('product-detail', ['id' => $banner_book_two->id])}}">See Details</a>
                                                 </div>
                                             </div>
                                             <div class="partner">
@@ -103,21 +116,22 @@
             </div>
             <div class="swiper main-swiper-thumb">
                 <div class="swiper-wrapper">
+                    @foreach($slider_book as $book)
                     <div class="swiper-slide">
                         <div class="books-card">
                             <div class="dz-media">
-                                <img src="{{asset('/')}}website/images/books/book16.png" alt="book">
+                                <img src="{{asset($book->image)}}" alt="book">
                             </div>
                             <div class="dz-content">
-                                <h5 class="title mb-0">Think and Grow Rich</h5>
+                                <h5 class="title mb-0">{{$book->name}}</h5>
                                 <div class="dz-meta">
                                     <ul>
-                                        <li>by Napoleon Hill</li>
+                                        <li>by {{$book->author->name}}</li>
                                     </ul>
                                 </div>
                                 <div class="book-footer">
                                     <div class="price">
-                                        <span class="price-num">$9.5</span>
+                                        <span class="price-num">BDT {{$book->selling_price}}</span>
                                     </div>
                                     <div class="rate">
                                         <i class="flaticon-star text-yellow"></i>
@@ -130,87 +144,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="books-card">
-                            <div class="dz-media">
-                                <img src="{{asset('/')}}website/images/books/grid/book9.jpg" alt="book">
-                            </div>
-                            <div class="dz-content">
-                                <h5 class="title mb-0">Pushing Clouds</h5>
-                                <div class="dz-meta">
-                                    <ul>
-                                        <li>by Jamet Sigh</li>
-                                    </ul>
-                                </div>
-                                <div class="book-footer">
-                                    <div class="price">
-                                        <span class="price-num">$5.7</span>
-                                    </div>
-                                    <div class="rate">
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-muted"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="books-card">
-                            <div class="dz-media">
-                                <img src="{{asset('/')}}website/images/books/book16.png" alt="book">
-                            </div>
-                            <div class="dz-content">
-                                <h5 class="title mb-0">Think and Grow Rich</h5>
-                                <div class="dz-meta">
-                                    <ul>
-                                        <li>by Napoleon Hill</li>
-                                    </ul>
-                                </div>
-                                <div class="book-footer">
-                                    <div class="price">
-                                        <span class="price-num">$9.5</span>
-                                    </div>
-                                    <div class="rate">
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="books-card">
-                            <div class="dz-media">
-                                <img src="{{asset('/')}}website/images/books/grid/book9.jpg" alt="book">
-                            </div>
-                            <div class="dz-content">
-                                <h5 class="title mb-0">Pushing Clouds</h5>
-                                <div class="dz-meta">
-                                    <ul>
-                                        <li>by Jamet Sigh</li>
-                                    </ul>
-                                </div>
-                                <div class="book-footer">
-                                    <div class="price">
-                                        <span class="price-num">$5.7</span>
-                                    </div>
-                                    <div class="rate">
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-yellow"></i>
-                                        <i class="flaticon-star text-muted"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -699,8 +633,181 @@
         </section>
         <!-- Book Sale End -->
 
-        <!-- Category book -->
-        @foreach($categories as $category)
+        <!--new book -->
+                <section class="content-inner-1">
+                    <div class="container">
+                        <div class="section-head book-align">
+                            <h2 class="title mb-0">নতুন বই</h2>
+                            <div class="pagination-align style-1">
+                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                                <div class="swiper-pagination-two"></div>
+                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                            <div class="swiper-wrapper">
+                                @foreach($new_book as $book)
+                                    @if($book->status== 1)
+                                        <div class="swiper-slide">
+                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="dz-media">
+                                                    <img src="{{asset($book->image)}}" alt="book">
+                                                </div>
+                                                <div class="dz-content">
+                                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                                    <ul class="dz-tags">
+                                                        <a href="">{{$book->author->name}}</a>
+                                                        {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                        {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                        {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                        {{--                                                            @endforeach--}}
+                                                        {{--                                                        @endif--}}
+                                                    </ul>
+                                                    <div class="book-footer">
+                                                        <div class="rate">
+                                                            <i class="flaticon-star"></i> 6.8
+                                                        </div>
+                                                        <div class="price">
+                                                            <span class="price-num">{{$book->selling_price}}</span>
+                                                            <del>{{$book->regular_price}}</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else {{' '}}
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    <!-- new book End -->
+
+        <!--Home Category One book -->
+            @if($home_category_one->status== 1)
+                <section class="content-inner-1">
+                    <div class="container">
+                        <div class="section-head book-align">
+                            <h2 class="title mb-0">{{$home_category_one->name}}</h2>
+                            <div class="pagination-align style-1">
+                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                                <div class="swiper-pagination-two"></div>
+                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                            <div class="swiper-wrapper">
+                                @foreach($home_category_one->book as $book)
+                                    @if($book->status== 1)
+                                        <div class="swiper-slide">
+                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="dz-media">
+                                                    <img src="{{asset($book->image)}}" alt="book">
+                                                </div>
+                                                <div class="dz-content">
+                                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                                    <ul class="dz-tags">
+                                                        <a href="">{{$book->author->name}}</a>
+                                                        {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                        {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                        {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                        {{--                                                            @endforeach--}}
+                                                        {{--                                                        @endif--}}
+                                                    </ul>
+                                                    <div class="book-footer">
+                                                        <div class="rate">
+                                                            <i class="flaticon-star"></i> 6.8
+                                                        </div>
+                                                        <div class="price">
+                                                            <span class="price-num">{{$book->selling_price}}</span>
+                                                            <del>{{$book->regular_price}}</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else {{' '}}
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            @else
+                {{' '}}
+            @endif
+
+    <!--Home Category One book end -->
+
+        <!--Home Category Two book -->
+            @if($home_category_two->status== 1)
+                <section class="content-inner-1">
+                    <div class="container">
+                        <div class="section-head book-align">
+                            <h2 class="title mb-0">{{$home_category_two->name}}</h2>
+                            <div class="pagination-align style-1">
+                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                                <div class="swiper-pagination-two"></div>
+                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
+                            </div>
+                        </div>
+                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                            <div class="swiper-wrapper">
+                                @foreach($home_category_two->book as $book)
+                                    @if($book->status== 1)
+                                        <div class="swiper-slide">
+                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="dz-media">
+                                                    <img src="{{asset($book->image)}}" alt="book">
+                                                </div>
+                                                <div class="dz-content">
+                                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                                    <ul class="dz-tags">
+                                                        <a href="">{{$book->author->name}}</a>
+                                                        {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                        {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                        {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                        {{--                                                            @endforeach--}}
+                                                        {{--                                                        @endif--}}
+                                                    </ul>
+                                                    <div class="book-footer">
+                                                        <div class="rate">
+                                                            <i class="flaticon-star"></i> 6.8
+                                                        </div>
+                                                        <div class="price">
+                                                            <span class="price-num">{{$book->selling_price}}</span>
+                                                            <del>{{$book->regular_price}}</del>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else {{' '}}
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            @else
+                {{' '}}
+            @endif
+
+    <!--Home Category Two book end -->
+
+        <!--latest 3 Sub Category book -->
+        @foreach($new_sub_categories as $category)
             @if($category->status== 1)
                 <section class="content-inner-1">
                     <div class="container">
@@ -757,7 +864,7 @@
                 {{' '}}
             @endif
         @endforeach
-    <!-- Category book End -->
+    <!-- latest 3 Sub Category book End -->
 
         <!-- Author Book -->
         @foreach($authors as $author)

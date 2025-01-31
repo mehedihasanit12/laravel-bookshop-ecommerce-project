@@ -29,7 +29,7 @@
                     <div class="col-lg-6">
                         <div class="widget">
                             <h4 class="widget-title">Your Order</h4>
-                            <table class="table-bordered check-tbl">
+                            <table class="table-bordered check-tbl text-center">
                                 <thead class="text-center">
                                 <tr>
                                     <th>IMAGE</th>
@@ -44,37 +44,39 @@
                                 @foreach($cart_items as $cart_item)
                                 <tr>
                                     <td class="product-item-img"><img src="{{asset($cart_item->options->image)}}" alt=""></td>
-                                    <td class="product-item-name">{{$cart_item->name}}</td>
+                                    <td class="product-item-name"><a href="{{route('product-detail', ['id' => $cart_item->id])}}">{{$cart_item->name}}</a></td>
                                     <td class="product-price">{{$cart_item->qty}}</td>
-                                    <td class="product-price">{{$cart_item->price}}</td>
-                                    <td class="product-price">{{$cart_item->price * $cart_item->qty}}</td>
+                                    <td class="product-price">BDT {{$cart_item->price}}</td>
+                                    <td class="product-price">BDT {{$cart_item->price * $cart_item->qty}}</td>
                                 </tr>
+                                    @php($sum = $sum + ($cart_item->price * $cart_item->qty))
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <form class="shop-form">
+                        <form action="{{route('checkout.new-order')}}" method="POST" class="shop-form">
+                            @csrf
                             <div class="widget">
                                 <h4 class="widget-title">Order Total</h4>
                                 <table class="table-bordered check-tbl mb-4">
                                     <tbody>
                                     <tr>
                                         <td>Order Subtotal</td>
-                                        <td class="product-price">$125.96</td>
+                                        <td class="product-price">BDT {{$sum}}</td>
                                     </tr>
                                     <tr>
                                         <td>Shipping</td>
-                                        <td>Free Shipping</td>
+                                        <td>BDT {{$shipping = 100}}</td>
                                     </tr>
                                     <tr>
                                         <td>Coupon</td>
-                                        <td class="product-price">$28.00</td>
+                                        <td class="product-price">0</td>
                                     </tr>
                                     <tr>
                                         <td>Total</td>
-                                        <td class="product-price-total">$506.00</td>
+                                        <td class="product-price-total">BDT {{$total = $sum + $shipping}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -82,40 +84,29 @@
                             <div class="widget">
                                 <h4 class="widget-title">Payment Method</h4>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name on Card">
-                                </div>
-                                <div class="form-group">
-                                    <select class="default-select">
-                                        <option value="">Credit Card Type</option>
-                                        <option value="">Another option</option>
-                                        <option value="">A option</option>
-                                        <option value="">Potato</option>
+                                    <select name="payment_method" class="default-select">
+                                        <option value="Cash">Cash On Delivery</option>
+                                        <option value="Online">Online</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Credit Card Number">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Card Verification Number">
-                                </div>
                             </div>
-                            <form class=" shop-form">
+                            <div class=" shop-form">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-12 col-md-12">
                                         <div class="widget">
                                             <h4 class="widget-title">Billing & Shipping Address</h4>
                                             <div class="form-group">
-                                                <textarea type="text" class="form-control" placeholder="Address"></textarea>
+                                                <textarea type="text" class="form-control" name="delivery_address" placeholder="Address"></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6">
-
-                                    </div>
                                 </div>
-                            </form>
+                                <input type="hidden" name="order_total" value="{{$total}}">
+                                <input type="hidden" name="tax_total" value="0">
+                                <input type="hidden" name="shipping_total" value="{{$shipping}}">
+                            </div>
                             <div class="form-group">
-                                <a href="{{route('login')}}" class="btn btn-primary btnhover" type="button">Place Order Now </a>
+                                <button class="btn btn-primary btnhover" type="submit">Place Order Now </button>
                             </div>
                         </form>
                     </div>

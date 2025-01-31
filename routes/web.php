@@ -31,6 +31,8 @@ Route::get('/cart/direct-add/{id}', [CartController::class, 'directAddToCart'])-
 //checkout
 
 Route::get('/checkout/index', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout/new-order', [CheckoutController::class, 'newOrder'])->name('checkout.new-order');
+Route::get('/checkout/complete-order', [CheckoutController::class, 'completeOrder'])->name('checkout.complete-order');
 
 //login-registration
 

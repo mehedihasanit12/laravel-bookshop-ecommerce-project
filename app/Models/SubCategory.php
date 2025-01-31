@@ -70,4 +70,9 @@ class SubCategory extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function book()
+    {
+        return $this->hasMany(Book::class);
+    }
 }
