@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookSeriesController;
@@ -104,4 +105,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/book/update/{id}', [BookController::class, 'update'])->name('book.update');
     Route::get('/book/delete/{id}', [BookController::class, 'delete'])->name('book.delete');
 
+    Route::get('/admin/all-order', [AdminOrderController::class, 'index'])->name('admin.all-order');
+    Route::get('/admin/order-detail/{id}', [AdminOrderController::class, 'detail'])->name('admin.order-detail');
+    Route::get('/admin/order-edit/{id}', [AdminOrderController::class, 'edit'])->name('admin.order-edit');
 });

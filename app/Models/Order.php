@@ -30,4 +30,9 @@ class Order extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function orderDetail()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }
