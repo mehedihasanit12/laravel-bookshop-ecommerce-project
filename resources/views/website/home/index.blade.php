@@ -866,123 +866,57 @@
         @endforeach
     <!-- latest 3 Sub Category book End -->
 
-        <!-- Author Book -->
-        @foreach($authors as $author)
-            @if($author->status== 1)
-        <section class="content-inner-1">
-            <div class="container">
-                <div class="section-head book-align">
-                    <h2 class="title mb-0">{{$author->name}}'s Books</h2>
-                    <div class="pagination-align style-1">
-                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="swiper-pagination-two"></div>
-                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
-                    <div class="swiper-wrapper">
-                        @foreach($author->books as $book)
-                            @if($book->status== 1)
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="dz-media">
-                                    <img src="{{asset($book->image)}}" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">{{$book->name}}</a></h5>
-                                    <ul class="dz-tags">
-                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))
-                                            @foreach (json_decode($book->tags, true) as $tag)
-                                                <li><a href="">{{ $tag }}</a></li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">{{$book->selling_price}}</span>
-                                            <del>{{$book->regular_price}}</del>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="qty" value="1">
-                                            <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            @else {{' '}}
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-        @else
-                {{' '}}
-            @endif
-    @endforeach
-        <!-- Author Book End -->
 
-        <!-- Special Offer-->
-        @foreach($authors as $author)
-            @if($author->status== 1)
-        <section class="content-inner-2">
-            <div class="container">
-                <div class="section-head book-align">
-                    <h2 class="title mb-0">{{$author->name}}'s Books</h2>
-                    <div class="pagination-align style-1">
-                        <div class="book-button-prev swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="book-button-next swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="swiper-container book-swiper overflow-hidden">
-                    <div class="swiper-wrapper">
-                        @foreach($author->books as $book)
-                            @if($book->status== 1)
-                        <div class="swiper-slide">
-                            <div class="dz-card style-2 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="dz-media">
-                                    <a href=""><img src="{{asset($book->image)}}" height="350" alt="/"></a>
-                                </div>
-                                <div class="dz-info">
-                                    <h4 class="dz-title"><a href="">{{$book->name}}</a></h4>
-                                    <div class="dz-meta">
-                                        <ul class="dz-tags">
-                                            @if (isset($book->tags) && is_array(json_decode($book->tags, true)))
-                                                @foreach (json_decode($book->tags, true) as $tag)
-                                                    <li><a href="">{{ $tag }}</a></li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
-                                    </div>
-                                    <p>{!! $book->short_description !!}</p>
-                                    <div class="bookcard-footer">
-                                        <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-primary m-t15 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                        <div class="price-details">
-                                            ${{$book->selling_price}} <del>${{$book->regular_price}}</del>
-                                        </div>
-                                    </div>
-                                </div>
+        <!--Start Author Section-->
+
+
+                <section class="content-inner-1">
+                    <div class="container">
+                        <div class="section-head book-align">
+                            <h2 class="title mb-0">লেখক</h2>
+                            <div class="pagination-align style-1">
+                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                                <div class="swiper-pagination-two"></div>
+                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
                             </div>
                         </div>
-                            @else {{' '}}
-                            @endif
-                        @endforeach
+                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                            <div class="swiper-wrapper">
+                                @foreach($authors as $author)
+                                    @if($author->status== 1)
+                                        <div class="swiper-slide">
+                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                                <div class="dz-media">
+                                                    <img src="{{asset($author->image)}}" height="300" alt="book">
+                                                </div>
+                                                <div class="dz-content">
+                                                    <h5 class="title"><a href="{{route('author-detail', ['id' => $author->id])}}">{{$author->name}}</a></h5>
+                                                    <ul class="dz-tags">
+                                                        <a href="{{route('author-detail', ['id' => $author->id])}}">{{$author->name}}</a>
+                                                        {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                        {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                        {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                        {{--                                                            @endforeach--}}
+                                                        {{--                                                        @endif--}}
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @else
+                                        {{' '}}
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        @else
-            {{' '}}
-        @endif
-        @endforeach
-        <!-- Special Offer End -->
+                </section>
+
+
+
+        <!--End Author Section-->
+
+
 
         <!-- Feature Product -->
         <section class="content-inner-1 bg-grey reccomend">

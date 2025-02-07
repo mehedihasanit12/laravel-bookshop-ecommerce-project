@@ -43,6 +43,10 @@ Route::post('/customer/new-customer', [CustomerAuthController::class, 'newCustom
 Route::post('/customer/customer-login', [CustomerAuthController::class, 'customerLogin'])->name('customer.customer-login');
 Route::get('/customer/customer-logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.customer-logout');
 
+//author
+
+Route::get('/author-detail/{id}', [WebsiteController::class, 'authorDetail'])->name('author-detail');
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
 
@@ -108,4 +112,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/admin/all-order', [AdminOrderController::class, 'index'])->name('admin.all-order');
     Route::get('/admin/order-detail/{id}', [AdminOrderController::class, 'detail'])->name('admin.order-detail');
     Route::get('/admin/order-edit/{id}', [AdminOrderController::class, 'edit'])->name('admin.order-edit');
+    Route::post('/admin/order-update/{id}', [AdminOrderController::class, 'update'])->name('admin.order-update');
+    Route::get('/admin/order-invoice/{id}', [AdminOrderController::class, 'invoice'])->name('admin.order-invoice');
+    Route::get('/admin/order-invoice-print/{id}', [AdminOrderController::class, 'invoicePrint'])->name('admin.order-invoice-print');
+    Route::get('/admin/order-delete/{id}', [AdminOrderController::class, 'delete'])->name('admin.order-delete');
 });

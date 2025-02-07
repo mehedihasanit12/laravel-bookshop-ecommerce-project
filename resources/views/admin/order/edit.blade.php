@@ -7,7 +7,7 @@
             <p class="text-center text-success">{{session('message')}}</p>
             <p class="text-center text-danger">{{session('delete-message')}}</p>
             <div class="card card-body">
-                <form action="" method="POST">
+                <form action="{{route('admin.order-update', ['id' => $order->id])}}" method="POST">
                     @csrf
                     <div class="row mb-4">
                         <label for="" class="col-md-3">Order Total</label>
@@ -24,7 +24,7 @@
                     <div class="row mb-4">
                         <label for="" class="col-md-3">Delivery Address</label>
                         <div class="col-md-9">
-                            <textarea class="form-control">{{$order->delivery_address}}</textarea>
+                            <textarea class="form-control" name="delivery_address">{{$order->delivery_address}}</textarea>
                         </div>
                     </div>
                     <div class="row mb-4">

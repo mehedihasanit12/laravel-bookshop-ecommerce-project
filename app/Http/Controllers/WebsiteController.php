@@ -44,5 +44,9 @@ class WebsiteController extends Controller
         ]);
     }
 
+    public function authorDetail($id)
+    {
+        return view('website.author.index', ['author' => Author::find($id)]);
+    }
 
 }

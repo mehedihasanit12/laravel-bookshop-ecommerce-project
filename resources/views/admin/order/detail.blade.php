@@ -68,7 +68,19 @@
                     </tr>
                     <tr>
                         <th>Transaction Id</th>
-                        <td>234</td>
+                        <td>{{$order->transaction_id}}</td>
+                    </tr>
+                    <tr>
+                        <th>Courier Info</th>
+                        <td>
+                            @if($order->courier_id == 1)
+                                SA Poribahan
+                            @elseif($order->courier_id == 2)
+                                Korotoa
+                            @elseif($order->courier_id == 3)
+                                Sundarbahan
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th>Shipping Total</th>

@@ -7,7 +7,7 @@ use Cart;
 
 class OrderDetail extends Model
 {
-    public static $orderDetail;
+    public static $orderDetail, $orderDetails;
 
     public static function newOrderDetail($orderId)
     {
@@ -23,5 +23,14 @@ class OrderDetail extends Model
             self::$orderDetail->save();
         }
 
+    }
+
+    public static function deleteOrderDetail($id)
+    {
+        self::$orderDetails = OrderDetail::where('order_id', $id)->get();
+        foreach (self::$orderDetails as $orderDetail)
+        {
+            $orderDetail->delete();
+        }
     }
 }
