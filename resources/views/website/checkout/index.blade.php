@@ -104,6 +104,10 @@
                                 <input type="hidden" name="order_total" value="{{$total}}">
                                 <input type="hidden" name="tax_total" value="0">
                                 <input type="hidden" name="shipping_total" value="{{$shipping}}">
+                                <?php
+                                Session::put('order_total', $total);
+                                Session::put('shipping_total', $shipping);
+                                ?>
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary btnhover" type="submit">Place Order Now </button>

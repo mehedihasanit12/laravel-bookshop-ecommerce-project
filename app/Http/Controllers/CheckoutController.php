@@ -25,9 +25,18 @@ class CheckoutController extends Controller
     private $orderId;
     public function newOrder(Request $request)
     {
-        $this->orderId = Order::newOrder($request);
-        OrderDetail::newOrderDetail($this->orderId);
-        return redirect('/checkout/complete-order')->with('message', 'Your order info post successfully. Please wait, we will contact with you soon.');
+        if ($request->payment_method == 'Cash')
+        {
+            $this->orderId = Order::newOrder($request);
+            OrderDetail::newOrderDetail($this->orderId);
+            return redirect('/checkout/complete-order')->with('message', 'Your order info post successfully. Please wait, we will contact with you soon.');
+        }
+        elseif ($request->payment_method == 'Online')
+        {
+            $sslCommerzPayment = new SslCommerzPaymentController();
+            $sslCommerzPayment->index($request);
+
+        }
     }
 
     public function completeOrder()

@@ -7,6 +7,7 @@ use App\Http\Controllers\BookSeriesController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublisherController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,21 @@ Route::get('/customer/customer-logout', [CustomerAuthController::class, 'custome
 //author
 
 Route::get('/author-detail/{id}', [WebsiteController::class, 'authorDetail'])->name('author-detail');
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 ])->group(function () {
