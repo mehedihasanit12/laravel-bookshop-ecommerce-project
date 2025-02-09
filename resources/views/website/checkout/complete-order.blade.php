@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+   Order Successful
+@endsection
+
 @section('body')
 
     <div class="page-content">

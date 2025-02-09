@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+    Cart Page
+@endsection
+
 @section('body')
 
 

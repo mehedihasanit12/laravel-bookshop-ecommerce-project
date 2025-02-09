@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+    {{$book->name}}
+@endsection
+
 @section('body')
 
     <div class="page-content bg-grey">
@@ -42,7 +46,7 @@
                                                 <div class="writer-info">
                                                     <img src="{{asset($book->author->image)}}" alt="book">
                                                     <div>
-                                                        <span>Writen by</span>{{$book->author->name}}
+                                                        <span>Writen by</span><a style="color: #1a1668" href="{{route('author-detail', ['id' => $book->author_id])}}">{{$book->author->name}}</a>
                                                     </div>
                                                 </div>
                                             </li>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
@@ -59,7 +62,7 @@ class SslCommerzPaymentController extends Controller
         $post_data['product_profile'] = "physical-goods";
 
         # OPTIONAL PARAMETERS
-        $post_data['value_a'] = "ref001";
+        $post_data['value_a'] = Session::get('id');
         $post_data['value_b'] = "ref002";
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
@@ -80,6 +83,9 @@ class SslCommerzPaymentController extends Controller
                 'transaction_id' => $post_data['tran_id'],
                 'currency' => $post_data['currency']
             ]);
+
+        $order_Id = Order::orderBy('id', 'desc')->first()->id;
+        OrderDetail::newOrderDetail($order_Id);
 
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
@@ -168,8 +174,13 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+        $customer = Customer::find($request->value_a);
+        Session::put('id', $customer->id);
+        Session::put('name', $customer->name);
+        Session::put('email', $customer->email);
+        Session::put('image', $customer->image);
 
+        echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -193,7 +204,7 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['order_status' => 'Processing']);
+                    ->update(['order_status' => 'Processing', 'payment_status' => 'Complete']);
 
                 echo "<br >Transaction is successfully Completed";
                 return redirect('/checkout/complete-order')->with('message', 'Your order info post successfully. Please wait, we will contact with you soon.');
@@ -218,12 +229,12 @@ class SslCommerzPaymentController extends Controller
 
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount')->first();
+            ->select('transaction_id', 'order_status', 'currency', 'order_total')->first();
 
         if ($order_details->status == 'Pending') {
             $update_product = DB::table('orders')
                 ->where('transaction_id', $tran_id)
-                ->update(['status' => 'Failed']);
+                ->update(['order_status' => 'Failed']);
             echo "Transaction is Falied";
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             echo "Transaction is already Successful";

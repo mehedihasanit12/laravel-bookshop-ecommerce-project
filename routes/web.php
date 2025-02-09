@@ -10,6 +10,7 @@ use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\CartController;
@@ -29,6 +30,13 @@ Route::post('/cart/add/{id}', [CartController::class, 'store'])->name('cart.add'
 Route::post('/cart/update/', [CartController::class, 'update'])->name('cart.update');
 Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
 Route::get('/cart/direct-add/{id}', [CartController::class, 'directAddToCart'])->name('cart.direct-add');
+
+//wishlist
+
+Route::get('/wishlist/index', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::post('/wishlist/update/', [WishlistController::class, 'update'])->name('wishlist.update');
+Route::get('/wishlist/delete/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
+Route::get('/wishlist/direct-add/{id}', [WishlistController::class, 'directAddToWishlist'])->name('wishlist.direct-add');
 
 //checkout
 

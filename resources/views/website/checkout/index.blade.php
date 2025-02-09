@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+    Checkout Page
+@endsection
+
 @section('body')
 
     <div class="page-content">

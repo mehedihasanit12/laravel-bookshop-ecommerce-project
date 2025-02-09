@@ -20,7 +20,7 @@
     <link rel="icon" type="image/x-icon" href="{{asset('/')}}website/images/favicon.png"/>
 
     <!-- PAGE TITLE HERE -->
-    <title>Bookland Book Store Ecommerce Website</title>
+    <title>@yield('title')</title>
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,6 +37,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+    <style>
+        .wishlist-hover:hover{
+            background-color: #FF1E6F;
+        }
+    </style>
 
 </head>
 <body>
@@ -60,9 +66,9 @@
                     <div class="extra-cell">
                         <ul class="navbar-nav header-right">
                             <li class="nav-item">
-                                <a class="nav-link" href="wishlist.html">
+                                <a class="nav-link" href="{{route('wishlist.index')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
-                                    <span class="badge">21</span>
+                                    <span class="badge">{{Cart::instance('wishlist')->content()->count()}}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -127,13 +133,13 @@
                                                 <span class="ms-2">Profile</span>
                                             </div>
                                         </a>
-                                        <a href="shop-cart.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <a href="{{route('cart.index')}}" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                                                 <span class="ms-2">My Order</span>
                                             </div>
                                         </a>
-                                        <a href="wishlist.html" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
+                                        <a href="{{route('wishlist.index')}}" class="dropdown-item d-flex justify-content-between align-items-center ai-icon">
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
                                                 <span class="ms-2">Wishlist</span>

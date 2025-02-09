@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+    {{$category->name}}
+@endsection
+
 @section('body')
 
     <div class="page-content bg-grey">
@@ -224,10 +228,10 @@
                                 <a href="{{route('product-detail', ['id' => $book->id])}}"><img src="{{asset($book->image)}}" alt="book"></a>
                             </div>
                             <div class="bookmark-btn style-2">
-                                <input class="form-check-input" type="checkbox" id="flexCheckDefault1">
-                                <label class="form-check-label" for="flexCheckDefault1">
-                                    <i class="flaticon-heart"></i>
-                                </label>
+                                <a href="{{route('wishlist.direct-add', ['id' => $book->id])}}"><input class="form-check-input" type="checkbox" >
+                                    <label class="form-check-label wishlist-hover" for="flexCheckDefault1">
+                                        <i class="flaticon-heart"></i>
+                                    </label></a>
                             </div>
                             <div class="dz-content">
                                 <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use Cart;
 use View;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('categories', Category::all());
+        View::composer(['website.master'], function ($view) {
+            $view->with('categories', Category::all());
+            $view->with('cart_items', Cart::content());
+            $view->with('cart_items', Cart::content());
+        });
     }
 }

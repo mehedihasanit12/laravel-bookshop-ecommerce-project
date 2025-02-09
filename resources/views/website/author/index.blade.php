@@ -1,5 +1,9 @@
 @extends('website.master')
 
+@section('title')
+    {{$author->name}}
+@endsection
+
 @section('body')
 
     <div class="page-content bg-grey">
@@ -8,8 +12,8 @@
                 <div class="row book-grid-row style-4 m-b60">
                     <div class="col">
                         <div class="dz-box">
-                            <div class="dz-media">
-                                <img src="{{asset($author->image)}}" alt="book">
+                            <div class="dz-media" style="min-width:0">
+                                <img src="{{asset($author->image)}}" style="width: 100px; height: 100px;" alt="book">
                             </div>
                             <div class="dz-content">
                                 <div class="dz-header">
@@ -35,105 +39,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="dz-body">
-                                    <div class="book-detail">
-                                        <ul class="book-info">
-                                            <li>
-                                                <div class="writer-info">
-                                                    <img src="{{asset($author->image)}}" alt="book">
-                                                    <div>
-                                                        <span>Writen by</span>{{$author->name}}
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li><span>Publisher</span></li>
-                                            <li><span>Year</span></li>
-                                        </ul>
-                                    </div>
-                                    <p class="text-1"></p>
-
-                                    <div class="book-footer">
-                                        <div class="price">
-                                            <h5>BDT </h5>
-                                            <p class="p-lr10">BDT </p>
-                                        </div>
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <div class="product-num">
-                                                <div class="quantity btn-quantity style-1 me-3">
-                                                    <input id="demo_vertical2" class="quantity-input" type="number" value="1" name="qty"/>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary btnhover btnhover2"><i class="flaticon-shopping-cart-1"></i> <span>Add to cart</span></button>
-                                                <div class="bookmark-btn style-1 d-none d-sm-block">
-                                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault1">
-                                                    <label class="form-check-label" for="flexCheckDefault1">
-                                                        <i class="flaticon-heart"></i>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-8">
+                    <div class="col-xl-12 mb-5">
                         <div class="product-description tabs-site-button">
                             <ul class="nav nav-tabs">
-                                <li><a data-bs-toggle="tab" href="#graphic-design-1" class="active">Details Book</a></li>
+                                <li><a data-bs-toggle="tab" href="#graphic-design-1" class="active">Author Description</a></li>
                                 <li><a data-bs-toggle="tab" href="#developement-1">Customer Reviews</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="graphic-design-1" class="tab-pane show active">
-                                    <table class="table border book-overview">
-                                        <tr>
-                                            <th>Author Title</th>
-                                            <td>{{$author->name}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Author</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>ISBN</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Ediiton Language</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Book Format</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Date Published</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Publisher</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Pages</th>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Topic</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                        <tr class="tags">
-                                            <th>Tags</th>
-                                            <td>
-
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="card card-body">
+                                        {!! $author->description !!}
+                                    </div>
                                 </div>
                                 <div id="developement-1" class="tab-pane">
                                     <div class="clear" id="comment-list">
@@ -235,32 +157,69 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 mt-5 mt-xl-0">
+                    <div class="col-xl-12 mt-5 mt-xl-0">
                         <div class="widget">
-                            <h4 class="widget-title">Related Books</h4>
-                            <div class="row">
-
-                                            <div class="col-xl-12 col-lg-6">
-                                                <div class="dz-shop-card style-5">
-                                                    <div class="dz-media">
-                                                        <a href=""><img src="" alt=""></a>
+                            <h4 class="widget-title">লেখকের বই</h4>
+                        </div>
+                            <div class="row book-grid-row">
+                                @foreach($author->books as $book)
+                                    <div class="col-book style-1">
+                                        <div class="dz-shop-card style-1">
+                                            <div class="dz-media">
+                                                <a href="{{route('product-detail', ['id' => $book->id])}}"><img src="{{asset($book->image)}}" alt="book"></a>
+                                            </div>
+                                            <div class="bookmark-btn style-2">
+                                                <input class="form-check-input" type="checkbox" id="flexCheckDefault1">
+                                                <label class="form-check-label" for="flexCheckDefault1">
+                                                    <i class="flaticon-heart"></i>
+                                                </label>
+                                            </div>
+                                            <div class="dz-content">
+                                                <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                                <ul class="dz-tags">
+                                                    @foreach(json_decode($book->tags) as $tag)
+                                                        <li><a href="books-grid-view.html">{{$tag}},</a></li>
+                                                    @endforeach
+                                                </ul>
+                                                <ul class="dz-rating">
+                                                    <li><i class="flaticon-star text-yellow"></i></li>
+                                                    <li><i class="flaticon-star text-yellow"></i></li>
+                                                    <li><i class="flaticon-star text-yellow"></i></li>
+                                                    <li><i class="flaticon-star text-yellow"></i></li>
+                                                    <li><i class="flaticon-star text-yellow"></i></li>
+                                                </ul>
+                                                <div class="book-footer">
+                                                    <div class="price">
+                                                        <span class="price-num">BDT {{$book->selling_price}}</span>
+                                                        <del>BDT {{$book->regular_price}}</del>
                                                     </div>
-                                                    <div class="dz-content">
-                                                        <h5 class="subtitle"><a href=""></a></h5>
-                                                        <ul class="dz-tags">
-
-                                                        </ul>
-                                                        <div class="price">
-                                                            <span class="price-num">BDT </span>
-                                                            <del></del>
-                                                        </div>
-                                                        <a href="" class="btn btn-outline-primary btn-sm btnhover btnhover2"><i class="flaticon-shopping-cart-1 me-2"></i> Add to cart</a>
-                                                    </div>
+                                                    <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="qty" value="1">
+                                                        <button type="submit" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</button>
+                                                    </form>
                                                 </div>
                                             </div>
-
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
-                        </div>
+                            <div class="row page mt-0">
+                                <div class="col-md-6">
+                                    <p class="page-text">Showing 12 from 50 data</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <nav aria-label="Blog Pagination">
+                                        <ul class="pagination style-1 p-t20">
+                                            <li class="page-item"><a class="page-link prev" href="javascript:void(0);">Prev</a></li>
+                                            <li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                                            <li class="page-item"><a class="page-link next" href="javascript:void(0);">Next</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
