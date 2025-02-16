@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminCustomerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookSeriesController;
+use App\Http\Controllers\CourierController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublisherController;
@@ -140,4 +142,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/admin/order-invoice/{id}', [AdminOrderController::class, 'invoice'])->name('admin.order-invoice');
     Route::get('/admin/order-invoice-print/{id}', [AdminOrderController::class, 'invoicePrint'])->name('admin.order-invoice-print');
     Route::get('/admin/order-delete/{id}', [AdminOrderController::class, 'delete'])->name('admin.order-delete');
+
+    Route::resource('customer', AdminCustomerController::class);
+
+    Route::resource('courier', CourierController::class);
 });

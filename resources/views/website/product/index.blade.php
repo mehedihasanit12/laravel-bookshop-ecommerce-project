@@ -247,7 +247,7 @@
                         <div class="widget">
                             <h4 class="widget-title">Related Books</h4>
                             <div class="row">
-                                @foreach($book->category->book as $key => $related_book)
+                                @foreach($category_books as $key => $related_book)
                                     @if($related_book->status == 1)
                                         @if($key <=2)
                                 <div class="col-xl-12 col-lg-6">

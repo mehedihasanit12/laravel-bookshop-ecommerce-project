@@ -36,11 +36,16 @@ class WebsiteController extends Controller
         ]);
     }
 
+    public $book, $categoryBooks;
     public function product($id)
     {
+        $this->book = Book::find($id);
+        $this->categoryBooks = Book::where('category_id', $this->book->category_id)->latest()->get();
+
         return view('website.product.index', [
+            'book'     => $this->book,
             'categories' => Category::all(),
-            'book' => Book::find($id),
+            'category_books' => $this->categoryBooks,
             'cart_items' => Cart::content()
         ]);
     }

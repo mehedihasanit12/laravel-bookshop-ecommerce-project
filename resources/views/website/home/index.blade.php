@@ -891,7 +891,7 @@
                                         <div class="swiper-slide">
                                             <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
                                                 <div class="dz-media">
-                                                    <img src="{{asset($author->image)}}" height="300" alt="book">
+                                                    <img src="{{asset($author->image)}}" style="height: 210px; object-fit: cover" alt="book">
                                                 </div>
                                                 <div class="dz-content">
                                                     <h5 class="title"><a href="{{route('author-detail', ['id' => $author->id])}}">{{$author->name}}</a></h5>
@@ -1008,7 +1008,7 @@
                                             <div class="bookcard-footer">
                                                 <a href="{{route('cart.direct-add', ['id' => $feature_product->id])}}" class="btn btn-primary m-t15 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
                                                 <div class="price-details">
-                                                    BDT {{$offer_book->selling_price}} <del>{{$offer_book->regular_price}}/-</del>
+                                                    TK {{$offer_book->selling_price}} <del>{{$offer_book->regular_price}}/-</del>
                                                 </div>
                                             </div>
                                         </div>
