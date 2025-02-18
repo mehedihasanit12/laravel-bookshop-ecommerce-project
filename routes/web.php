@@ -12,6 +12,7 @@ use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebsiteController;
@@ -146,4 +147,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('customer', AdminCustomerController::class);
 
     Route::resource('courier', CourierController::class);
+
+    Route::resource('user', UserController::class);
 });

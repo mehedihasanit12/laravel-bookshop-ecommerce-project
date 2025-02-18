@@ -314,12 +314,12 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="app-access-roles.html" class="menu-link">
+                            <a href="{{route('user.create')}}" class="menu-link">
                                 <div>Add User</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="app-access-permission.html" class="menu-link">
+                            <a href="{{route('user.index')}}" class="menu-link">
                                 <div>Manage User</div>
                             </a>
                         </li>
@@ -747,7 +747,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <h6 class="mb-0 small">John Doe</h6>
+                                                <h6 class="mb-0 small">{{Auth::user()->name}}</h6>
                                                 <small class="text-muted">Admin</small>
 
                                             </div>

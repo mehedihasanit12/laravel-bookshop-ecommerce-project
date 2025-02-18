@@ -32,10 +32,10 @@
                         <div class="col-md-9">
                             <select class="form-control" name="order_status">
                                 <option value=""> -- Select Order Status -- </option>
-                                <option value="Pending"> Pending </option>
-                                <option value="Processing"> Processing </option>
-                                <option value="Complete"> Complete </option>
-                                <option value="Cancel"> Cancel </option>
+                                <option {{$order->order_status == 'Pending' ? 'selected' : ''}} value="Pending"> Pending </option>
+                                <option {{$order->order_status == 'Processing' ? 'selected' : ''}} value="Processing"> Processing </option>
+                                <option {{$order->order_status == 'Complete' ? 'selected' : ''}} value="Complete"> Complete </option>
+                                <option {{$order->order_status == 'Cancel' ? 'selected' : ''}} value="Cancel"> Cancel </option>
                             </select>
                         </div>
                     </div>
@@ -44,9 +44,9 @@
                         <div class="col-md-9">
                             <select class="form-control" name="courier_id">
                                 <option value=""> -- Select Courier Info -- </option>
-                                <option value="1"> SA Probibahan </option>
-                                <option value="2"> Korotoa </option>
-                                <option value="3"> Subdorban </option>
+                                @foreach($couriers as $courier)
+                                <option value="{{$courier->id}}" @selected($courier->id==$order->courier_id) > {{$courier->name}} </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
