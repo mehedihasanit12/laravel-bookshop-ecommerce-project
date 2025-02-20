@@ -33,4 +33,9 @@ class OrderDetail extends Model
             $orderDetail->delete();
         }
     }
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'product_id');
+    }
 }

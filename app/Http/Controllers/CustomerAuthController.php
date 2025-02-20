@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Session;
 
@@ -65,5 +67,24 @@ class CustomerAuthController extends Controller
         Session::forget('image');
 
         return redirect('/');
+    }
+
+    public function customerOrder($customer_id)
+    {
+        return view('customer.order.index', [
+            'customer_orders' => Order::where('customer_id', $customer_id)->get()
+        ]);
+    }
+
+    public function customerOrderDetail($order_id)
+    {
+        return view('customer.order.detail', [
+            'customer_order_details' => OrderDetail::where('order_id', $order_id)->get()
+        ]);
+    }
+
+    public function customerProfile()
+    {
+        return view('customer.profile.index');
     }
 }
