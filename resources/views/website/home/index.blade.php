@@ -52,9 +52,9 @@
                                             <div class="partner">
                                                 <p>Our partner</p>
                                                 <div class="brand-logo">
-                                                    <img src="{{asset('/')}}website/images/partner/partner-1.png" alt="client">
-                                                    <img  class="mid-logo" src="{{asset('/')}}website/images/partner/partner-2.png" alt="client">
-                                                    <img src="{{asset('/')}}website/images/partner/partner-3.png" alt="client">
+                                                    <img src="{{asset('/')}}website/images/partner/partner-1.webp" width="125" height="26" alt="client">
+                                                    <img  class="mid-logo" src="{{asset('/')}}website/images/partner/partner-2.png" width="100" height="26" alt="client">
+                                                    <img src="{{asset('/')}}website/images/partner/partner-3.jpeg" width="100" height="26" alt="client">
                                                 </div>
                                             </div>
                                         </div>
@@ -96,9 +96,9 @@
                                             <div class="partner">
                                                 <p>Our partner</p>
                                                 <div class="brand-logo">
-                                                    <img src="{{asset('/')}}website/images/partner/partner-1.png" alt="client">
-                                                    <img  class="mid-logo" src="{{asset('/')}}website/images/partner/partner-2.png" alt="client">
-                                                    <img src="{{asset('/')}}website/images/partner/partner-3.png" alt="client">
+                                                    <img src="{{asset('/')}}website/images/partner/partner-1.webp" width="125" height="26" alt="client">
+                                                    <img  class="mid-logo" src="{{asset('/')}}website/images/partner/partner-2.png" width="100" height="26" alt="client">
+                                                    <img src="{{asset('/')}}website/images/partner/partner-3.jpeg" width="100" height="26" alt="client">
                                                 </div>
                                             </div>
                                         </div>
@@ -172,103 +172,103 @@
         <!-- Client End-->
 
         <!--Recommend Section Start-->
-        <section class="content-inner-1 bg-grey reccomend">
-            <div class="container">
-                <div class="section-head text-center">
-                    <h2 class="title">Recomended For You</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
-                </div>
-                <!-- Swiper -->
-                <div class="swiper-container swiper-two overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book6.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Adventure</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Take Tango</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book2.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Home</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.4s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book16.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Thunder Stunt</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book14.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Heavy Lift</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book1.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Real Life</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.7s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h4 class="title">Terrible</h4>
-                                    <span class="price">$18,78</span>
-                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section class="content-inner-1 bg-grey reccomend">--}}
+{{--            <div class="container">--}}
+{{--                <div class="section-head text-center">--}}
+{{--                    <h2 class="title">Recomended For You</h2>--}}
+{{--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>--}}
+{{--                </div>--}}
+{{--                <!-- Swiper -->--}}
+{{--                <div class="swiper-container swiper-two overflow-hidden">--}}
+{{--                    <div class="swiper-wrapper">--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book6.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Adventure</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.2s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Take Tango</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.3s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book2.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Home</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.4s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book16.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Thunder Stunt</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.5s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book14.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Heavy Lift</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.6s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book1.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Real Life</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-1 wow fadeInUp" data-wow-delay="0.7s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h4 class="title">Terrible</h4>--}}
+{{--                                    <span class="price">$18,78</span>--}}
+{{--                                    <a href="shop-cart.html" class="btn btn-secondary btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
 
         <!-- icon-box1 -->
         <section class="content-inner-2">
@@ -324,317 +324,317 @@
         <!-- icon-box1 End-->
 
         <!-- Book Sale -->
-        <section class="content-inner-1">
-            <div class="container">
-                <div class="section-head book-align">
-                    <h2 class="title mb-0">Books on Sale</h2>
-                    <div class="pagination-align style-1">
-                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="swiper-pagination-two"></div>
-                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Take Out Tango</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book11.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book7.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Seconds [PART 1]</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.4s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book12.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Terrible Madness</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Battle Drive</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section class="content-inner-1">--}}
+{{--            <div class="container">--}}
+{{--                <div class="section-head book-align">--}}
+{{--                    <h2 class="title mb-0">Books on Sale</h2>--}}
+{{--                    <div class="pagination-align style-1">--}}
+{{--                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>--}}
+{{--                        <div class="swiper-pagination-two"></div>--}}
+{{--                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">--}}
+{{--                    <div class="swiper-wrapper">--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Take Out Tango</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.2s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book11.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.3s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book7.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Seconds [PART 1]</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.4s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book12.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.5s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Terrible Madness</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.6s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Battle Drive</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
         <!-- Book Sale End -->
 
         <!-- Book Sale -->
-        <section class="content-inner-1">
-            <div class="container">
-                <div class="section-head book-align">
-                    <h2 class="title mb-0">Thriller Books</h2>
-                    <div class="pagination-align style-1">
-                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
-                        <div class="swiper-pagination-two"></div>
-                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Take Out Tango</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book11.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book7.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Seconds [PART 1]</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.4s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book12.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Terrible Madness</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.6s">
-                                <div class="dz-media">
-                                    <img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt="book">
-                                </div>
-                                <div class="dz-content">
-                                    <h5 class="title"><a href="books-grid-view.html">Battle Drive</a></h5>
-                                    <ul class="dz-tags">
-                                        <li><a href="books-grid-view.html">SPORTS,</a></li>
-                                        <li><a href="books-grid-view.html">DRAMA</a></li>
-                                    </ul>
-                                    <div class="book-footer">
-                                        <div class="rate">
-                                            <i class="flaticon-star"></i> 6.8
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-num">$9.5</span>
-                                            <del>$12.0</del>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+{{--        <section class="content-inner-1">--}}
+{{--            <div class="container">--}}
+{{--                <div class="section-head book-align">--}}
+{{--                    <h2 class="title mb-0">Thriller Books</h2>--}}
+{{--                    <div class="pagination-align style-1">--}}
+{{--                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>--}}
+{{--                        <div class="swiper-pagination-two"></div>--}}
+{{--                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">--}}
+{{--                    <div class="swiper-wrapper">--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book5.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Take Out Tango</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.2s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book11.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.3s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book7.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Seconds [PART 1]</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.4s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book12.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">The Missadventure</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.5s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book15.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Terrible Madness</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-slide">--}}
+{{--                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.6s">--}}
+{{--                                <div class="dz-media">--}}
+{{--                                    <img src="{{asset('/')}}website/images/books/grid/book3.jpg" alt="book">--}}
+{{--                                </div>--}}
+{{--                                <div class="dz-content">--}}
+{{--                                    <h5 class="title"><a href="books-grid-view.html">Battle Drive</a></h5>--}}
+{{--                                    <ul class="dz-tags">--}}
+{{--                                        <li><a href="books-grid-view.html">SPORTS,</a></li>--}}
+{{--                                        <li><a href="books-grid-view.html">DRAMA</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                    <div class="book-footer">--}}
+{{--                                        <div class="rate">--}}
+{{--                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                        </div>--}}
+{{--                                        <div class="price">--}}
+{{--                                            <span class="price-num">$9.5</span>--}}
+{{--                                            <del>$12.0</del>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
         <!-- Book Sale End -->
 
         <!--new book -->
@@ -811,63 +811,63 @@
     <!--Home Category Two book end -->
 
         <!--latest 3 Sub Category book -->
-        @foreach($new_sub_categories as $category)
-            @if($category->status== 1)
-                <section class="content-inner-1">
-                    <div class="container">
-                        <div class="section-head book-align">
-                            <h2 class="title mb-0">{{$category->name}}</h2>
-                            <div class="pagination-align style-1">
-                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
-                                <div class="swiper-pagination-two"></div>
-                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
-                            <div class="swiper-wrapper">
-                                @foreach($category->book as $book)
-                                    @if($book->status== 1)
-                                        <div class="swiper-slide">
-                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
-                                                <div class="dz-media">
-                                                    <img src="{{asset($book->image)}}" alt="book">
-                                                </div>
-                                                <div class="dz-content">
-                                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
-                                                    <ul class="dz-tags">
-                                                        <a href="">{{$book->author->name}}</a>
+{{--        @foreach($new_sub_categories as $category)--}}
+{{--            @if($category->status== 1)--}}
+{{--                <section class="content-inner-1">--}}
+{{--                    <div class="container">--}}
+{{--                        <div class="section-head book-align">--}}
+{{--                            <h2 class="title mb-0">{{$category->name}}</h2>--}}
+{{--                            <div class="pagination-align style-1">--}}
+{{--                                <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>--}}
+{{--                                <div class="swiper-pagination-two"></div>--}}
+{{--                                <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">--}}
+{{--                            <div class="swiper-wrapper">--}}
+{{--                                @foreach($category->book as $book)--}}
+{{--                                    @if($book->status== 1)--}}
+{{--                                        <div class="swiper-slide">--}}
+{{--                                            <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">--}}
+{{--                                                <div class="dz-media">--}}
+{{--                                                    <img src="{{asset($book->image)}}" alt="book">--}}
+{{--                                                </div>--}}
+{{--                                                <div class="dz-content">--}}
+{{--                                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>--}}
+{{--                                                    <ul class="dz-tags">--}}
+{{--                                                        <a href="">{{$book->author->name}}</a>--}}
 {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
 {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
 {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
 {{--                                                            @endforeach--}}
 {{--                                                        @endif--}}
-                                                    </ul>
-                                                    <div class="book-footer">
-                                                        <div class="rate">
-                                                            <i class="flaticon-star"></i> 6.8
-                                                        </div>
-                                                        <div class="price">
-                                                            <span class="price-num">{{$book->selling_price}}</span>
-                                                            <del>{{$book->regular_price}}</del>
-                                                        </div>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center">
-                                                            <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @else {{' '}}
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            @else
-                {{' '}}
-            @endif
-        @endforeach
+{{--                                                    </ul>--}}
+{{--                                                    <div class="book-footer">--}}
+{{--                                                        <div class="rate">--}}
+{{--                                                            <i class="flaticon-star"></i> 6.8--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="price">--}}
+{{--                                                            <span class="price-num">{{$book->selling_price}}</span>--}}
+{{--                                                            <del>{{$book->regular_price}}</del>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="d-flex justify-content-center">--}}
+{{--                                                            <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    @else {{' '}}--}}
+{{--                                    @endif--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </section>--}}
+{{--            @else--}}
+{{--                {{' '}}--}}
+{{--            @endif--}}
+{{--        @endforeach--}}
     <!-- latest 3 Sub Category book End -->
 
 

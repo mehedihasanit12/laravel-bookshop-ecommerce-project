@@ -19,7 +19,6 @@ class WebsiteController extends Controller
             'banner_book_two'       => Book::latest()->skip(1)->first(),
             'slider_book'           => Book::latest()->take(4)->get(),
             'new_book'              => Book::latest()->take(6)->get(),
-            'new_sub_categories'    => SubCategory::latest()->take(3)->get(),
             'home_category_one'     => Category::where('home_status', 1)->orderBy('id', 'asc')->first(),
             'home_category_two'     => Category::where('home_status', 1)->orderBy('id', 'asc')->skip(1)->first(),
             'authors'               => Author::all(),

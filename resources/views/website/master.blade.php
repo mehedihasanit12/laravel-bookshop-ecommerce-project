@@ -42,6 +42,9 @@
         .wishlist-hover:hover{
             background-color: #FF1E6F;
         }
+        .hidden{
+            display: none;
+        }
     </style>
 
 </head>
@@ -108,7 +111,7 @@
                                     </li>
                                     <li class="text-center d-flex">
                                         <a href="{{route('cart.index')}}" class="btn btn-sm btn-primary me-2 btnhover w-100">View Cart</a>
-                                        <a href="shop-checkout.html" class="btn btn-sm btn-outline-primary btnhover w-100">Checkout</a>
+                                        <a href="{{route('wishlist.index')}}" class="btn btn-sm btn-outline-primary btnhover w-100">Checkout</a>
                                     </li>
                                 </ul>
                             </li>
@@ -168,28 +171,23 @@
 
                 <!-- header search nav -->
                 <div class="header-search-nav">
-                    <form class="header-item-search">
+                    <form action="{{ route('search.search') }}" method="GET" class="header-item-search">
                         <div class="input-group search-input">
-                            <select class="default-select">
+                            <select name="category_id"  class="default-select">
                                 <option>Category</option>
-                                <option>Photography </option>
-                                <option>Arts</option>
-                                <option>Adventure</option>
-                                <option>Action</option>
-                                <option>Games</option>
-                                <option>Movies</option>
-                                <option>Comics</option>
-                                <option>Biographies</option>
-                                <option>Children’s Books</option>
-                                <option>Historical</option>
-                                <option>Contemporary</option>
-                                <option>Classics</option>
-                                <option>Education</option>
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}} </option>
+                                @endforeach
                             </select>
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
-                            <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+                            <input type="text" id="search" name="search" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+                            <button class="btn" type="submit"><i class="flaticon-loupe"></i></button>
                         </div>
                     </form>
+                    <div id="ajaxSearchResultDiv" class="hidden" style="padding: 20px;border-radius: 8px;background: white !important; width: 442px;position: absolute;top: 67px;left: 345px;">
+                        <ul id="ajaxSearchResult">
+                            <li><a href="">Search...</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,12 +219,13 @@
                     <!-- Main Nav -->
                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
                         <div class="logo-header logo-dark">
-                            <a href="index.html"><img src="{{asset('/')}}website/images/logo.png" alt=""></a>
+                            <a href="{{route('home')}}"><img src="{{asset('/')}}website/images/logo.png" alt=""></a>
                         </div>
-                        <form class="search-input">
+                        <form action="{{ route('search.search') }}" method="GET" class="search-input">
                             <div class="input-group">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
-                                <button class="btn" type="button"><i class="flaticon-loupe"></i></button>
+                                <input type="text" name="search" class="form-control" aria-label="Text input with dropdown button" placeholder="Search Books Here">
+                                <input type="hidden" name="category_id" value="00" class="form-control" aria-label="Text input with dropdown button" >
+                                <button class="btn" type="submit"><i class="flaticon-loupe"></i></button>
                             </div>
                         </form>
                         <ul class="nav navbar-nav">
@@ -534,6 +533,64 @@
 <script src="{{asset('/')}}website/js/dz.carousel.js"></script><!-- DZ CAROUSEL JS -->
 <script src="{{asset('/')}}website/js/dz.ajax.js"></script><!-- AJAX -->
 <script src="{{asset('/')}}website/js/custom.js"></script><!-- CUSTOM JS -->
+
+<script>
+    // ডিবাউন্স ফাংশন
+    function debounce(func, delay) {
+        let timer;
+        return function () {
+            clearTimeout(timer);
+            timer = setTimeout(() => func.apply(this, arguments), delay);
+        };
+    }
+
+    $(document).ready(function () {
+        $('#search').on('focus', function () {
+            $('#ajaxSearchResultDiv').removeClass('hidden');
+        });
+
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#search, #ajaxSearchResult').length) {
+                $('#ajaxSearchResultDiv').addClass('hidden');
+            }
+        });
+
+        // ডিবাউন্স সহ AJAX
+        $('#search').on('keyup', debounce(function () {
+            var search = $(this).val();
+
+            if (search !== '') {
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('search.ajax-search') }}',
+                    data: { search: search },
+                    dataType: 'JSON',
+                    success: function (response) {
+                        var item = '';
+
+                        if (response.length === 0) {
+                            item += '<li class="text-sm text-gray-500">No results found</li>';
+                        } else {
+                            $.each(response, function (key, value) {
+                                item += `<li style="margin-bottom: 10px">
+                                        <img style="width: 50px; height: 50px;" src="${value.image_url}" alt="">
+                                        <a href="http://localhost/laravel-bookshop-ecommerce-project/public/product-detail/${value.id}"
+                                           class="text-sm text-gray-500 hover:text-black">${value.name} By ${value.author_name}</a>
+                                     </li>`;
+                            });
+                        }
+
+                        $('#ajaxSearchResult').html(item); // `.empty()` এবং `.append()` এর পরিবর্তে `.html()` ব্যবহার করুন
+                    }
+                });
+            } else {
+                $('#ajaxSearchResult').empty();
+            }
+        }, 300)); // 300ms বিলম্ব; প্রয়োজন হলে সময় পরিবর্তন করতে পারেন
+    });
+
+
+</script>
 
 </body>
 

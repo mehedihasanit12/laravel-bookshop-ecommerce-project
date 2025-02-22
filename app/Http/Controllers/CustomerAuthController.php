@@ -65,6 +65,7 @@ class CustomerAuthController extends Controller
         Session::forget('name');
         Session::forget('email');
         Session::forget('image');
+        Session::flush();
 
         return redirect('/');
     }

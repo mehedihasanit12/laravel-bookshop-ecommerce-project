@@ -1,7 +1,7 @@
 @extends('website.master')
 
 @section('title')
-    {{$category->name}}
+    Search Page
 @endsection
 
 @section('body')
@@ -10,7 +10,7 @@
         <section class="content-inner-1 border-bottom">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="title">Books > {{$category->name}}</h4>
+                    <h4 class="title">Books > Search Result</h4>
                 </div>
                 <div class="filter-area m-b30">
                     <div class="grid-area">
@@ -221,46 +221,46 @@
                 </div>
 
                 <div class="row book-grid-row">
-                    @foreach($category->book as $book)
-                    <div class="col-book style-1">
-                        <div class="dz-shop-card style-1">
-                            <div class="dz-media">
-                                <a href="{{route('product-detail', ['id' => $book->id])}}"><img src="{{asset($book->image)}}" alt="book"></a>
-                            </div>
-                            <div class="bookmark-btn style-2">
-                                <a href="{{route('wishlist.direct-add', ['id' => $book->id])}}"><input class="form-check-input" type="checkbox" >
-                                    <label class="form-check-label wishlist-hover" for="flexCheckDefault1">
-                                        <i class="flaticon-heart"></i>
-                                    </label></a>
-                            </div>
-                            <div class="dz-content">
-                                <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
-                                <ul class="dz-tags">
-
-                                    <li><a href="books-grid-view.html">{{$book->author->name}}</a></li>
-
-                                </ul>
-                                <ul class="dz-rating">
-                                    <li><i class="flaticon-star text-yellow"></i></li>
-                                    <li><i class="flaticon-star text-yellow"></i></li>
-                                    <li><i class="flaticon-star text-yellow"></i></li>
-                                    <li><i class="flaticon-star text-yellow"></i></li>
-                                    <li><i class="flaticon-star text-yellow"></i></li>
-                                </ul>
-                                <div class="book-footer">
-                                    <div class="price">
-                                        <span class="price-num">BDT {{$book->selling_price}}</span>
-                                        <del>BDT {{$book->regular_price}}</del>
+                    @foreach($books as $book)
+                        <div class="col-book style-1">
+                            <div class="dz-shop-card style-1">
+                                <div class="dz-media">
+                                    <a href="{{route('product-detail', ['id' => $book->id])}}"><img src="{{asset($book->image)}}" alt="book"></a>
+                                </div>
+                                <div class="bookmark-btn style-2">
+                                    <a href="{{route('wishlist.direct-add', ['id' => $book->id])}}"><input class="form-check-input" type="checkbox" >
+                                        <label class="form-check-label wishlist-hover" for="flexCheckDefault1">
+                                            <i class="flaticon-heart"></i>
+                                        </label></a>
+                                </div>
+                                <div class="dz-content">
+                                    <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                    <ul class="dz-tags">
+                                        @foreach(json_decode($book->tags) as $tag)
+                                            <li><a href="books-grid-view.html">{{$tag}},</a></li>
+                                        @endforeach
+                                    </ul>
+                                    <ul class="dz-rating">
+                                        <li><i class="flaticon-star text-yellow"></i></li>
+                                        <li><i class="flaticon-star text-yellow"></i></li>
+                                        <li><i class="flaticon-star text-yellow"></i></li>
+                                        <li><i class="flaticon-star text-yellow"></i></li>
+                                        <li><i class="flaticon-star text-yellow"></i></li>
+                                    </ul>
+                                    <div class="book-footer">
+                                        <div class="price">
+                                            <span class="price-num">BDT {{$book->selling_price}}</span>
+                                            <del>BDT {{$book->regular_price}}</del>
+                                        </div>
+                                        <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="qty" value="1">
+                                            <button type="submit" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</button>
+                                        </form>
                                     </div>
-                                    <form action="{{route('cart.add', ['id' => $book->id])}}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="qty" value="1">
-                                        <button type="submit" class="btn btn-secondary box-btn btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
                 <div class="row page mt-0">

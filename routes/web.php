@@ -9,6 +9,7 @@ use App\Http\Controllers\CourierController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublisherController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
@@ -61,6 +62,13 @@ Route::get('/customer/customer-profile/', [CustomerAuthController::class, 'custo
 //author
 
 Route::get('/author-detail/{id}', [WebsiteController::class, 'authorDetail'])->name('author-detail');
+
+//search
+
+
+Route::get('/search/index', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search', [SearchController::class, 'search'])->name('search.search');
+Route::get('/search/ajax', [SearchController::class, 'ajaxSearch'])->name('search.ajax-search');
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

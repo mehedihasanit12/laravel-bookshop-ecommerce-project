@@ -122,6 +122,22 @@ class Book extends Model
         self::$book->delete();
     }
 
+    public static function search($query, $categoryId)
+    {
+        return self::where('name', 'LIKE', "%{$query}%")
+            ->WhereHas('category', function ($q) use ($categoryId) {
+                $q->where('id', $categoryId);
+            });
+    }
+
+    public static function ajaxSearch($query)
+    {
+        return self::where('name', 'LIKE', "%{$query}%")
+            ->orWhereHas('author', function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%");
+            });
+    }
+
     public function otherImages()
     {
         return $this->hasMany(OtherImage::class);

@@ -14,6 +14,10 @@ class CheckoutController extends Controller
     {
         if (Session::get('id'))
         {
+            if (Cart::content()->count()==0)
+            {
+                return redirect('/');
+            }
             return view('website.checkout.index', [
                 'cart_items' => Cart::content()
             ]);
