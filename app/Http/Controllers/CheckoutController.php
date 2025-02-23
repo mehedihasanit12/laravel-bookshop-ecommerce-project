@@ -33,6 +33,7 @@ class CheckoutController extends Controller
         {
             $this->orderId = Order::newOrder($request);
             OrderDetail::newOrderDetail($this->orderId);
+            Cart::destroy();
             return redirect('/checkout/complete-order')->with('message', 'Your order info post successfully. Please wait, we will contact with you soon.');
         }
         elseif ($request->payment_method == 'Online')

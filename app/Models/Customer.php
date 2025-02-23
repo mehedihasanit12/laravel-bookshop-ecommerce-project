@@ -28,9 +28,56 @@ class Customer extends Model
             self::$customer->image = self::getImageUrl($request);
         }
 
+        if ($request->blood_group)
+        {
+            self::$customer->blood_group = $request->blood_group;
+        }
+
+        if ($request->date_of_birth)
+        {
+            self::$customer->date_of_birth = $request->date_of_birth;
+        }
+
+        if ($request->address)
+        {
+            self::$customer->address = $request->address;
+        }
+
         self::$customer->name = $request->name;
         self::$customer->email = $request->email;
         self::$customer->password = bcrypt($request->password);
+        self::$customer->mobile = $request->mobile;
+        self::$customer->save();
+
+        return self::$customer;
+    }
+
+    public static function updateCustomer($request,$id)
+    {
+        self::$customer = Customer::find($id);
+
+        if ($request->file('image'))
+        {
+            self::$customer->image = self::getImageUrl($request);
+        }
+
+        if ($request->blood_group)
+        {
+            self::$customer->blood_group = $request->blood_group;
+        }
+
+        if ($request->date_of_birth)
+        {
+            self::$customer->date_of_birth = $request->date_of_birth;
+        }
+
+        if ($request->address)
+        {
+            self::$customer->address = $request->address;
+        }
+
+        self::$customer->name = $request->name;
+        self::$customer->email = $request->email;
         self::$customer->mobile = $request->mobile;
         self::$customer->save();
 

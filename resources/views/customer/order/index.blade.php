@@ -42,6 +42,7 @@
                                         <th>Order ID</th>
                                         <th>Product</th>
                                         <th>Order Total</th>
+                                        <th>Order Status</th>
                                         <th>Payment Status</th>
                                         <th>Delivery Status</th>
                                         <th class="text-end">Action</th>
@@ -60,11 +61,14 @@
                                             <td class="product-item-img">{{$customer_order->id}}</td>
                                             <td class="product-item-name">{{$order_count}}</td>
                                             <td class="product-item-price">BDT {{$customer_order->order_total}}/-</td>
-                                            <td class="product-item-price"><span style="background-color: {{$customer_order->payment_status=='Complete' ? 'green' : ''}} {{$customer_order->payment_status=='Processing' ? '#0CB6D8' : ''}}" class="badge text-bg-success">{{$customer_order->payment_status}}</span></td>
-                                            <td class="product-item-price"><span style="background-color: {{$customer_order->delivery_status=='Complete' ? 'green' : ''}} {{$customer_order->delivery_status=='Processing' ? '#0CB6D8' : ''}}" class="badge text-bg-success">{{$customer_order->delivery_status}}</span></td>
+                                            <td class="product-item-price"><span style="background-color: {{$customer_order->order_status=='Complete' ? 'green' : ''}} {{$customer_order->order_status=='Processing' ? '#0CB6D8' : ''}} {{$customer_order->order_status=='Cancel' ? 'red' : ''}}" class="badge text-bg-success">{{$customer_order->order_status}}</span></td>
+                                            <td class="product-item-price"><span style="background-color: {{$customer_order->payment_status=='Complete' ? 'green' : ''}} {{$customer_order->payment_status=='Processing' ? '#0CB6D8' : ''}} {{$customer_order->payment_status=='Cancel' ? 'red' : ''}}" class="badge text-bg-success">{{$customer_order->payment_status}}</span></td>
+                                            <td class="product-item-price"><span style="background-color: {{$customer_order->delivery_status=='Complete' ? 'green' : ''}} {{$customer_order->delivery_status=='Processing' ? '#0CB6D8' : ''}} {{$customer_order->delivery_status=='Cancel' ? 'red' : ''}}" class="badge text-bg-success">{{$customer_order->delivery_status}}</span></td>
                                             <td class="product-item-close">
                                                 <a href="{{route('customer.customer-orderDetail', ['id' => $customer_order->id])}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                <a href="{{route('customer.customer-cancelOrder', ['id' => $customer_order->id])}}" onclick="return confirm('Are You Sure? Order Cancel?')" class="ti-close"></a>
                                             </td>
+
                                         </tr>
 
                                     @endforeach

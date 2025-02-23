@@ -57,6 +57,7 @@ Route::post('/customer/customer-login', [CustomerAuthController::class, 'custome
 Route::get('/customer/customer-logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.customer-logout');
 Route::get('/customer/customer-order/{id}', [CustomerAuthController::class, 'customerOrder'])->name('customer.customer-order');
 Route::get('/customer/customer-orderDetail/{id}', [CustomerAuthController::class, 'customerOrderDetail'])->name('customer.customer-orderDetail');
+Route::get('/customer/customer-cancelOrder/{id}', [CustomerAuthController::class, 'customerCancelOrder'])->name('customer.customer-cancelOrder');
 Route::get('/customer/customer-profile/', [CustomerAuthController::class, 'customerProfile'])->name('customer.customer-profile');
 
 //author

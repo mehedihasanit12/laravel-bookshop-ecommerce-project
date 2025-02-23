@@ -27,8 +27,8 @@
                                 <td>{{$customer->email}}</td>
                                 <td>{{$customer->mobile}}</td>
                                 <td>
-                                    <a href="{{route('category.edit', ['id' => $customer->id])}}" class="btn btn-success btn-sm">
-                                        <i class="fa fa-eye"></i>
+                                    <a href="{{route('customer.edit', $customer->id)}}" class="btn btn-success btn-sm">
+                                        <i class="fa fa-edit"></i>
                                     </a>
                                     <a href="{{route('category.delete', ['id' => $customer->id])}}" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">
                                         <i class="fa fa-trash"></i>

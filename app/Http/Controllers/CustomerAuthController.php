@@ -84,6 +84,12 @@ class CustomerAuthController extends Controller
         ]);
     }
 
+    public function customerCancelOrder($order_id)
+    {
+        Order::cancelOrder($order_id);
+        return back()->with('message', 'Order Cancel Successfully.');
+    }
+
     public function customerProfile()
     {
         return view('customer.profile.index');

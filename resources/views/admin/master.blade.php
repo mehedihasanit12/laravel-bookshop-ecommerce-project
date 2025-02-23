@@ -294,7 +294,7 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="app-user-list.html" class="menu-link">
+                            <a href="{{route('customer.create')}}" class="menu-link">
                                 <div>Add Customer</div>
                             </a>
                         </li>

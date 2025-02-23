@@ -26,6 +26,15 @@ class Order extends Model
         return self::$order->id;
     }
 
+    public static function cancelOrder($order_id)
+    {
+        self::$order = Order::find($order_id);
+        self::$order->order_status = "Cancel";
+        self::$order->payment_status = "Cancel";
+        self::$order->delivery_status = "Cancel";
+        self::$order->save();
+    }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

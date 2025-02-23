@@ -22,7 +22,7 @@ class AdminCustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.customer.create');
     }
 
     /**
@@ -30,7 +30,8 @@ class AdminCustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Customer::newCustomer($request);
+        return back()->with('message', 'Customer Info add successfully.');
     }
 
     /**
@@ -46,7 +47,9 @@ class AdminCustomerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.customer.edit', [
+            'customer' => Customer::find($id)
+        ]);
     }
 
     /**
@@ -54,7 +57,8 @@ class AdminCustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Customer::updateCustomer($request,$id);
+        return back()->with('message', 'Customer Info update successfully.');
     }
 
     /**
