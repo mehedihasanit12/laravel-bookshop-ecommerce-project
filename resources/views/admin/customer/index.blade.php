@@ -30,9 +30,16 @@
                                     <a href="{{route('customer.edit', $customer->id)}}" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="{{route('category.delete', ['id' => $customer->id])}}" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">
-                                        <i class="fa fa-trash"></i>
+                                    <a href="{{route('customer.show', $customer->id)}}" class="btn btn-info btn-sm">
+                                        <i class="fa fa-eye"></i>
                                     </a>
+                                    <form style="display: inline" action="{{route('customer.destroy', $customer->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

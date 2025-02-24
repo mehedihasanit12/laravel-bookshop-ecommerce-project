@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookSeriesController;
 use App\Http\Controllers\CourierController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PublisherController;
@@ -24,7 +25,12 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
+Route::get('/contact-us', [WebsiteController::class, 'contact'])->name('contact');
+Route::get('/return-refund', [WebsiteController::class, 'returnRefund'])->name('return-refund');
+Route::get('/faq', [WebsiteController::class, 'faq'])->name('faq');
+Route::get('/privacy-policy', [WebsiteController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/product-category/{id}', [WebsiteController::class, 'category'])->name('product-category');
+Route::get('/product-publisher/{id}', [WebsiteController::class, 'publisher'])->name('product-publisher');
 Route::get('/product-detail/{id}', [WebsiteController::class, 'product'])->name('product-detail');
 
 //cart
@@ -55,10 +61,13 @@ Route::get('/customer/registration', [CustomerAuthController::class, 'registrati
 Route::post('/customer/new-customer', [CustomerAuthController::class, 'newCustomer'])->name('customer.new-customer');
 Route::post('/customer/customer-login', [CustomerAuthController::class, 'customerLogin'])->name('customer.customer-login');
 Route::get('/customer/customer-logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.customer-logout');
-Route::get('/customer/customer-order/{id}', [CustomerAuthController::class, 'customerOrder'])->name('customer.customer-order');
-Route::get('/customer/customer-orderDetail/{id}', [CustomerAuthController::class, 'customerOrderDetail'])->name('customer.customer-orderDetail');
-Route::get('/customer/customer-cancelOrder/{id}', [CustomerAuthController::class, 'customerCancelOrder'])->name('customer.customer-cancelOrder');
-Route::get('/customer/customer-profile/', [CustomerAuthController::class, 'customerProfile'])->name('customer.customer-profile');
+
+
+Route::get('/customer/all-order/{id}', [CustomerController::class, 'customerOrder'])->name('customer.customer-order');
+Route::get('/customer/order-detail/{id}', [CustomerController::class, 'customerOrderDetail'])->name('customer.customer-orderDetail');
+Route::get('/customer/cancel-order/{id}', [CustomerController::class, 'customerCancelOrder'])->name('customer.customer-cancelOrder');
+Route::get('/customer/profile/', [CustomerController::class, 'customerProfile'])->name('customer.customer-profile');
+Route::post('/customer/profile-update/{id}', [CustomerController::class, 'customerUpdate'])->name('customer.customer-profile-update');
 
 //author
 

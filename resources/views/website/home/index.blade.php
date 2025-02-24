@@ -810,6 +810,65 @@
 
     <!--Home Category Two book end -->
 
+        <!--Home Category Three book -->
+        @if($home_category_three->status== 1)
+            <section class="content-inner-1">
+                <div class="container">
+                    <div class="section-head book-align">
+                        <h2 class="title mb-0">{{$home_category_three->name}}</h2>
+                        <div class="pagination-align style-1">
+                            <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                            <div class="swiper-pagination-two"></div>
+                            <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                    <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                        <div class="swiper-wrapper">
+                            @foreach($home_category_three->book as $book)
+                                @if($book->status== 1)
+                                    <div class="swiper-slide">
+                                        <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="dz-media">
+                                                <img src="{{asset($book->image)}}" alt="book">
+                                            </div>
+                                            <div class="dz-content">
+                                                <h5 class="title"><a href="{{route('product-detail', ['id' => $book->id])}}">{{$book->name}}</a></h5>
+                                                <ul class="dz-tags">
+                                                    <a href="">{{$book->author->name}}</a>
+                                                    {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                    {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                    {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                    {{--                                                            @endforeach--}}
+                                                    {{--                                                        @endif--}}
+                                                </ul>
+                                                <div class="book-footer">
+                                                    <div class="rate">
+                                                        <i class="flaticon-star"></i> 6.8
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price-num">{{$book->selling_price}}</span>
+                                                        <del>{{$book->regular_price}}</del>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{route('cart.direct-add', ['id' => $book->id])}}" class="btn btn-secondary mt-3 btnhover btnhover2"><i class="flaticon-shopping-cart-1 m-r10"></i> Add to cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else {{' '}}
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>
+    @else
+        {{' '}}
+    @endif
+
+    <!--Home Category Three book end -->
+
         <!--latest 3 Sub Category book -->
 {{--        @foreach($new_sub_categories as $category)--}}
 {{--            @if($category->status== 1)--}}
@@ -919,6 +978,57 @@
 
 
         <!--End Author Section-->
+
+
+
+        <!--Start Publisher Section-->
+
+
+        <section class="content-inner-1">
+            <div class="container">
+                <div class="section-head book-align">
+                    <h2 class="title mb-0">প্রকাশনী</h2>
+                    <div class="pagination-align style-1">
+                        <div class="swiper-button-prev"><i class="fa-solid fa-angle-left"></i></div>
+                        <div class="swiper-pagination-two"></div>
+                        <div class="swiper-button-next"><i class="fa-solid fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="swiper-container books-wrapper-3 swiper-four overflow-hidden">
+                    <div class="swiper-wrapper">
+                        @foreach($publishers as $publisher)
+                            @if($publisher->status== 1)
+                                <div class="swiper-slide">
+                                    <div class="books-card style-3 wow fadeInUp" data-wow-delay="0.1s">
+                                        <div class="dz-media">
+                                            <img src="{{asset($publisher->image)}}" style="height: 210px; object-fit: cover" alt="book">
+                                        </div>
+                                        <div class="dz-content">
+                                            <h5 class="title"><a href="{{route('product-publisher', ['id' => $publisher->id])}}">{{$publisher->name}}</a></h5>
+                                            <ul class="dz-tags">
+                                                <a href="{{route('product-publisher', ['id' => $publisher->id])}}">{{$publisher->name}}</a>
+                                                {{--                                                        @if (isset($book->tags) && is_array(json_decode($book->tags, true)))--}}
+                                                {{--                                                            @foreach (json_decode($book->tags, true) as $tag)--}}
+                                                {{--                                                                <li><a href="">{{ $tag }}</a></li><br>--}}
+                                                {{--                                                            @endforeach--}}
+                                                {{--                                                        @endif--}}
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @else
+                                {{' '}}
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--End Publisher Section-->
 
 
 

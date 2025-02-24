@@ -222,6 +222,7 @@
 
                 <div class="row book-grid-row">
                     @foreach($books as $book)
+                        {{dd($book)}}
                         <div class="col-book style-1">
                             <div class="dz-shop-card style-1">
                                 <div class="dz-media">

@@ -70,28 +70,5 @@ class CustomerAuthController extends Controller
         return redirect('/');
     }
 
-    public function customerOrder($customer_id)
-    {
-        return view('customer.order.index', [
-            'customer_orders' => Order::where('customer_id', $customer_id)->get()
-        ]);
-    }
 
-    public function customerOrderDetail($order_id)
-    {
-        return view('customer.order.detail', [
-            'customer_order_details' => OrderDetail::where('order_id', $order_id)->get()
-        ]);
-    }
-
-    public function customerCancelOrder($order_id)
-    {
-        Order::cancelOrder($order_id);
-        return back()->with('message', 'Order Cancel Successfully.');
-    }
-
-    public function customerProfile()
-    {
-        return view('customer.profile.index');
-    }
 }

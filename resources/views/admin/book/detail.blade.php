@@ -31,10 +31,7 @@
                             <td>Book Brand</td>
                             <td>{{isset($book->publisher->name) ? $book->publisher->name : ''}}</td>
                         </tr>
-                        <tr>
-                            <td>Book Unit</td>
-                            <td>{{isset($book->author->name) ? $book->author->name : ''}}</td>
-                        </tr>
+
                         <tr>
                             <td>Book Regular Price</td>
                             <td>{{$book->regular_price}}</td>

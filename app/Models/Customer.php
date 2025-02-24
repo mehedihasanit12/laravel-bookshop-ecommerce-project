@@ -76,11 +76,28 @@ class Customer extends Model
             self::$customer->address = $request->address;
         }
 
+        if ($request->password)
+        {
+            self::$customer->password = $request->password;
+        }
+
         self::$customer->name = $request->name;
         self::$customer->email = $request->email;
         self::$customer->mobile = $request->mobile;
         self::$customer->save();
 
         return self::$customer;
+    }
+
+    public static function deleteCustomer($id)
+    {
+        self::$customer = Customer::find($id);
+
+        if (isset(self::$customer->image))
+        {
+            unlink(self::$customer->image);
+        }
+
+        self::$customer->delete();
     }
 }

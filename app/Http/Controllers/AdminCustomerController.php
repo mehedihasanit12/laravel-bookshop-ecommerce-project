@@ -39,7 +39,9 @@ class AdminCustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('admin.customer.detail', [
+            'customer' => Customer::find($id)
+        ]);
     }
 
     /**
@@ -66,6 +68,7 @@ class AdminCustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Customer::deleteCustomer($id);
+        return back()->with('delete-message', 'Customer Delete successfully.');
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Publisher;
 use App\Models\SubCategory;
 use Cart;
 use Illuminate\Http\Request;
@@ -21,10 +22,32 @@ class WebsiteController extends Controller
             'new_book'              => Book::latest()->take(6)->get(),
             'home_category_one'     => Category::where('home_status', 1)->orderBy('id', 'asc')->first(),
             'home_category_two'     => Category::where('home_status', 1)->orderBy('id', 'asc')->skip(1)->first(),
+            'home_category_three'     => Category::where('home_status', 1)->orderBy('id', 'asc')->skip(2)->first(),
             'authors'               => Author::all(),
+            'publishers'            => Publisher::all(),
             'feature_products'      => Book::latest()->skip(7)->take(3)->get(),
             'special_offer'         => Book::orderBy('id', 'asc')->take(4)->get(),
         ]);
+    }
+
+    public function contact()
+    {
+        return view('website.contact.index');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('website.privacy-policy.index');
+    }
+
+    public function returnRefund()
+    {
+        return view('website.return-refund.index');
+    }
+
+    public function faq()
+    {
+        return view('website.faq.index');
     }
 
     public function category($id)
@@ -32,6 +55,14 @@ class WebsiteController extends Controller
         return view('website.category.index', [
             'categories' => Category::all(),
             'category' => Category::find($id)
+        ]);
+    }
+
+    public function publisher($id)
+    {
+        return view('website.publisher.index', [
+            'publishers' => Publisher::all(),
+            'publisher' => Publisher::find($id)
         ]);
     }
 

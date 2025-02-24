@@ -66,6 +66,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
                         </div>
                         <div class="row">
                             <label for="" class="col-md-10"></label>

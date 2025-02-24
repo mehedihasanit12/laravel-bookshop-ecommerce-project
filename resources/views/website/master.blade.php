@@ -229,152 +229,32 @@
                             </div>
                         </form>
                         <ul class="nav navbar-nav">
-                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>Home</span></a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                </ul>
+                            <li class=""><a href="{{route('home')}}"><span>Home</span></a>
                             </li>
-                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>Pages</span></a>
-                                <ul class="sub-menu">
-                                    <li><a href="about-us.html"><span>About Us</span></a></li>
-                                    <li><a href="my-profile.html">My Profile</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="faq.html">FAQ's</a></li>
-                                    <li><a href="help-desk.html">Help Desk</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                    <li><a href="under-construction.html">Under Construction</a></li>
-                                    <li><a href="error-404.html">Error 404</a></li>
-                                </ul>
-                            </li>
-                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>Shop</span></a>
-                                <ul class="sub-menu">
-                                    <li><a href="">Shop Grid</a></li>
-                                    <li><a href="books-grid-view-sidebar.html">Shop Grid Sidebar</a></li>
-                                    <li><a href="books-list.html">Shop List</a></li>
-                                    <li><a href="books-list-view-sidebar.html">Shop List Sidebar</a></li>
-                                    <li><a href="books-detail.html">Shop Detail</a></li>
-                                    <li><a href="shop-cart.html">Cart</a></li>
-                                    <li><a href="shop-checkout.html">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="shop-login.html">Login</a></li>
-                                    <li><a href="shop-registration.html">Registration</a></li>
-                                </ul>
-                            </li>
-                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>Blog</span></a>
-                                <ul class="sub-menu">
-                                    <li><a href="javascript:void(0);">Page Layout <i class="fa fa-angle-right"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="javascript:void(0);">No Sidebar <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-no-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-no-sidebar.html">Blog Grid</a></li>
-                                                    <li><a href="blog-grid-wide.html">Blog Grid Wide</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0);">2 Columns <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0);">3 Columns <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-both-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-both-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="javascript:void(0);">Blog Sidebar <i class="fa fa-angle-right"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="javascript:void(0);">No Sidebar <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-no-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-no-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0);">Left Sidebar <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-left-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-left-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0);">Right Sidebar <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-right-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-right-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="javascript:void(0);">2 Sidebar <i class="fa fa-angle-right"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="blog-list-both-sidebar.html">Blog List</a></li>
-                                                    <li><a href="blog-grid-both-sidebar.html">Blog Grid</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-mega-menu sub-menu-down"><a href="javascript:void(0);">Post Layout</a>
-                                <ul class="mega-menu">
-                                    <li><a href="javascript:void(0);">Side Bar</a>
-                                        <ul>
-                                            <li><a href="post-left-sidebar.html">Post Left Sidebar</a></li>
-                                            <li><a href="post-right-sidebar.html">Post Right Sidebar</a></li>
-                                            <li><a href="post-both-sidebar.html" class="new-badge">Post Both Sidebar <span>New</span></a></li>
-                                            <li><a href="post-no-sidebar.html">Post No Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a href="javascript:void(0);">Post Types</a>
-                                        <ul>
-                                            <li><a href="post-text.html" class="new-badge">Text Post <span>New</span></a></li>
-                                            <li><a href="post-image.html"  class="new-badge">Image Post <span>New</span></a></li>
-                                            <li><a href="post-video.html">Post Video</a></li>
-                                            <li><a href="post-link.html">Post Link</a></li>
-                                            <li><a href="post-audio.html">Post Audio</a></li>
-                                            <li><a href="post-quote.html">Post Quote</a></li>
-                                            <li><a href="post-tutorial.html" class="new-badge">Tutorial Post <span>New</span></a></li>
-                                            <li><a href="post-cateloge.html" class="new-badge">Cateloge Post <span>New</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a href="javascript:void(0);">Multiple Media</a>
-                                        <ul>
-                                            <li><a href="post-banner.html" class="new-badge">Banner <span>New</span></a></li>
-                                            <li><a href="post-slide-show.html">Post Slide Show</a></li>
-                                            <li><a href="post-gallery.html">Gallery</a></li>
-                                            <li><a href="post-status-slider.html" class="new-badge">Status Slider <span>New</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li> <a href="javascript:void(0);">Post Layout Type</a>
-                                        <ul>
-                                            <li><a href="post-standard.html">Standard Post </a></li>
-                                            <li><a href="post-side.html" class="new-badge">Side Post <span>New</span></a></li>
-                                            <li><a href="post-corner.html" class="new-badge">Corner Post <span>New</span></a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">Contact Us</a></li>
-                            <li><a href="">Category</a></li>
-                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>All Category</span></a>
+                            <li class="sub-menu-down"><a href="javascript:void(0);"><span>Category</span></a>
                                 <ul class="sub-menu">
                                     @foreach($categories as $category)
-                                    <li><a href="{{route('product-category', ['id' => $category->id])}}">{{$category->name}} <i class="fa fa-angle-right"></i></a>
-                                        <ul class="sub-menu">
-                                            @foreach($category->subCategory as $sub_category)
-                                            <li><a href="{{route('product-category', ['id' => $sub_category->category_id])}}">{{$sub_category->name}}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
+                                        <li><a href="{{route('product-category', ['id' => $category->id])}}">{{$category->name}} <i class="fa fa-angle-right"></i></a>
+                                            <ul class="sub-menu">
+                                                @foreach($category->subCategory as $sub_category)
+                                                    <li><a href="{{route('product-category', ['id' => $sub_category->category_id])}}">{{$sub_category->name}}</a></li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </li>
+                            <li class=""><a href="{{route('contact')}}"><span>Contact Us</span></a>
+                            </li>
+                            <li class=""><a href="{{route('return-refund')}}"><span>Returns & Refunds</span></a>
+                            </li>
+                            <li class=""><a href="{{route('privacy-policy')}}"><span>Privacy Policy</span></a>
+                            </li>
+                            <li class=""><a href="{{route('faq')}}"><span>FAQ's</span></a>
+                            </li>
+
                         </ul>
-                        </ul>
+
                         <div class="dz-social-icon">
                             <ul>
                                 <li><a class="fab fa-facebook-f" target="_blank" href="https://www.facebook.com/dexignzone"></a></li>
@@ -508,7 +388,7 @@
                     <p class="copyright-text">Bookland Book Store Ecommerce Website -  © <span class="current-year">2024</span> All Rights Reserved</p>
                 </div>
                 <div class="col-lg-6 col-md-12 text-end">
-                    <p>Made with <span class="heart"></span> by <a href="https://dexignzone.com/">DexignZone</a></p>
+                    <p>Made with <span class="heart"></span> by <a href="">NIYD Web-03</a></p>
                 </div>
             </div>
         </div>
@@ -535,7 +415,29 @@
 <script src="{{asset('/')}}website/js/custom.js"></script><!-- CUSTOM JS -->
 
 <script>
-    // ডিবাউন্স ফাংশন
+    // 🔥 Banglish to Bangla Mapping
+    const banglishToBanglaMap = {
+        a: 'অ', b: 'ব', c: 'চ', d: 'দ', e: 'এ', f: 'ফ', g: 'গ', h: 'হ',
+        i: 'ই', j: 'জ', k: 'ক', l: 'ল', m: 'ম', n: 'ন', o: 'ও', p: 'প',
+        q: 'ক', r: 'র', s: 'স', t: 'ত', u: 'উ', v: 'ভ', w: 'ও', x: 'ক্স',
+        y: 'য', z: 'জ', sh: 'শ', ch: 'ছ', kh: 'খ', th: 'থ', dh: 'ধ', ng: 'ঙ'
+    };
+
+    // 📝 Convert Function
+    function convertBanglishToBangla(text) {
+        let output = text.toLowerCase();
+
+        // Double character map (e.g., "sh", "kh", "ng")
+        Object.keys(banglishToBanglaMap)
+            .sort((a, b) => b.length - a.length) // Longer keys first
+            .forEach(key => {
+                output = output.replaceAll(key, banglishToBanglaMap[key]);
+            });
+
+        return output;
+    }
+
+    // 🕒 ডিবাউন্স ফাংশন
     function debounce(func, delay) {
         let timer;
         return function () {
@@ -555,15 +457,17 @@
             }
         });
 
-        // ডিবাউন্স সহ AJAX
+        // 🔥 ডিবাউন্স সহ AJAX এবং Transliteration
         $('#search').on('keyup', debounce(function () {
             var search = $(this).val();
 
             if (search !== '') {
+                var banglaSearch = convertBanglishToBangla(search); // 💡 Bangla te convert korchi
+
                 $.ajax({
                     type: 'GET',
                     url: '{{ route('search.ajax-search') }}',
-                    data: { search: search },
+                    data: { search: banglaSearch }, // 👈 Bangla text send kora hocche
                     dataType: 'JSON',
                     success: function (response) {
                         var item = '';
@@ -580,16 +484,14 @@
                             });
                         }
 
-                        $('#ajaxSearchResult').html(item); // `.empty()` এবং `.append()` এর পরিবর্তে `.html()` ব্যবহার করুন
+                        $('#ajaxSearchResult').html(item);
                     }
                 });
             } else {
                 $('#ajaxSearchResult').empty();
             }
-        }, 300)); // 300ms বিলম্ব; প্রয়োজন হলে সময় পরিবর্তন করতে পারেন
+        }, 300));
     });
-
-
 </script>
 
 </body>

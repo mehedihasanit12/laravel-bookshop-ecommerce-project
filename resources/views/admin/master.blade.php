@@ -241,24 +241,6 @@
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class='menu-icon tf-icons ri-car-line'></i>
-                        <div>Product Module</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="{{route('product.create')}}" class="menu-link">
-                                <div>Add Product</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{route('product.index')}}" class="menu-link">
-                                <div>Manage Product</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class='menu-icon tf-icons ri-car-line'></i>
                         <div>Book Module</div>
                     </a>
                     <ul class="menu-sub">

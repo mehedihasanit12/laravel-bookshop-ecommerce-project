@@ -63,4 +63,9 @@ class Publisher extends Model
 
         self::$publisher->delete();
     }
+
+    public function book()
+    {
+        return $this->hasMany(Book::class);
+    }
 }

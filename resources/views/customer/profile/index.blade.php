@@ -46,7 +46,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="privacy-policy.html"><i class="fa fa-key" aria-hidden="true"></i>
+                                            <a href="{{route('privacy-policy')}}"><i class="fa fa-key" aria-hidden="true"></i>
                                                 <span>Privacy Policy</span></a>
                                         </li>
                                         <li>
@@ -58,86 +58,80 @@
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-8 m-b30">
+                            <p class="text-success text-center">{{session('message')}}</p>
                             <div class="shop-bx shop-profile">
                                 <div class="shop-bx-title clearfix">
                                     <h5 class="text-uppercase">Basic Information</h5>
                                 </div>
-                                <form>
+                                <form action="{{route('customer.customer-profile-update', ['id' => $customer->id])}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="row m-b30">
                                         <div class="col-lg-6 col-md-6">
                                             <div class="mb-3">
                                                 <label for="formcontrolinput1" class="form-label">Your Name:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput1" placeholder="Alexander Weir">
+                                                <input type="text" name="name" value="{{$customer->name}}" class="form-control" id="formcontrolinput1" placeholder="Name" readonly>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="mb-3">
-                                                <label for="formcontrolinput2" class="form-label">Professional title:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput2" placeholder="Web Designer">
+                                                <label for="formcontrolinput2" class="form-label">Your Email:</label>
+                                                <input type="email" name="email" value="{{$customer->email}}" class="form-control" id="formcontrolinput2" placeholder="Email Address" readonly>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="mb-3">
-                                                <label for="formcontrolinput3" class="form-label">Languages:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput3" placeholder="Language">
+                                                <label for="formcontrolinput3" class="form-label">Date Of Birth:</label>
+                                                <input type="date" name="date_of_birth" value="{{$customer->date_of_birth}}" class="form-control" id="formcontrolinput3" placeholder="Date Of Birth">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="mb-3">
-                                                <label for="formcontrolinput4" class="form-label">Age:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput4" placeholder="Age">
+                                                <label for="formcontrolinput4" class="form-label">Blood Group:</label>
+                                                <select class="form-control" id="formcontrolinput4" name="blood_group" id="">
+                                                    <option value="">--Select Blood Group--</option>
+                                                    <option value="A-" @selected($customer->blood_group=="A-") >A-</option>
+                                                    <option value="A+" @selected($customer->blood_group=="A+")>A+</option>
+                                                    <option value="B+" @selected($customer->blood_group=="B+")>B+</option>
+                                                    <option value="B-" @selected($customer->blood_group=="B-")>B-</option>
+                                                    <option value="AB-" @selected($customer->blood_group=="AB-")>AB-</option>
+                                                    <option value="AB+" @selected($customer->blood_group=="AB+")>AB+</option>
+                                                    <option value="O+" @selected($customer->blood_group=="O+")>O+</option>
+                                                    <option value="O-" @selected($customer->blood_group=="O-")>O-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="mb-3">
+                                                <label for="formcontrolinput5" class="form-label">Password:</label>
+                                                <input type="password" name="password" class="form-control" id="formcontrolinput5" >
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="mb-3">
+                                                <label for="formcontrolinput5" class="form-label">Contact Number:</label>
+                                                <input type="number" name="mobile" value="{{$customer->mobile}}" class="form-control" id="formcontrolinput5" placeholder="Contact Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="mb-3">
+                                                <label for="formcontrolinput5" class="form-label">Image:</label>
+                                                <input type="file" name="image" class="form-control" id="formcontrolinput5">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="mb-3">
+                                                <img src="{{asset($customer->image)}}" width="50" height="50" alt="">
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12">
 
                                             <div class="mb-3">
-                                                <label for="exampleFormControlTextarea" class="form-label">Description:</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.</textarea>
+                                                <label for="exampleFormControlTextarea" class="form-label">Address:</label>
+                                                <textarea class="form-control" name="address" id="exampleFormControlTextarea" rows="5">{{$customer->address}}</textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="shop-bx-title clearfix">
-                                        <h5 class="text-uppercase">Contact Information</h5>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="formcontrolinput5" class="form-label">Contact Number:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput5" placeholder="+1 123 456 7890">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="formcontrolinput6" class="form-label">Email Address:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput6" placeholder="info@example.com">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="formcontrolinput7" class="form-label">Country:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput7" placeholder="Country Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="formcontrolinput8" class="form-label">Postcode:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput8" placeholder="112233">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-3">
-                                                <label for="formcontrolinput9" class="form-label">City:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput9" placeholder="City Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="mb-4">
-                                                <label for="formcontrolinput10" class="form-label">Full Address:</label>
-                                                <input type="text" class="form-control" id="formcontrolinput10" placeholder="New york City">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="btn btn-primary btnhover">Save Setting</button>
+                                    <button type="submit" class="btn btn-primary btnhover">Update Profile</button>
                                 </form>
                             </div>
                         </div>
