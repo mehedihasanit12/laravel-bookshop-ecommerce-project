@@ -325,6 +325,19 @@
                         </li>
                     </ul>
                 </li>
+                <li class="menu-item">
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class='menu-icon tf-icons ri-lock-2-line'></i>
+                        <div>Comment Module</div>
+                    </a>
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="{{route('comment.index')}}" class="menu-link">
+                                <div>Manage Comment</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
 

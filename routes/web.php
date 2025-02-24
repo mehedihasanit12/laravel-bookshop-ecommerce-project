@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\AdminCustomerController;
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BookSeriesController;
 use App\Http\Controllers\CourierController;
+use App\Http\Controllers\CustomerCommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProductController;
@@ -68,6 +70,10 @@ Route::get('/customer/order-detail/{id}', [CustomerController::class, 'customerO
 Route::get('/customer/cancel-order/{id}', [CustomerController::class, 'customerCancelOrder'])->name('customer.customer-cancelOrder');
 Route::get('/customer/profile/', [CustomerController::class, 'customerProfile'])->name('customer.customer-profile');
 Route::post('/customer/profile-update/{id}', [CustomerController::class, 'customerUpdate'])->name('customer.customer-profile-update');
+
+//comment
+
+Route::post('/comment/store', [CustomerCommentController::class, 'commentStore'])->name('comment.store');
 
 //author
 
@@ -170,4 +176,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('courier', CourierController::class);
 
     Route::resource('user', UserController::class);
+
+    Route::resource('comment', AdminCommentController::class);
 });

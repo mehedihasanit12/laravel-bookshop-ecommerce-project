@@ -168,4 +168,9 @@ class Book extends Model
         return $this->belongsTo(Language::class);
     }
 
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
