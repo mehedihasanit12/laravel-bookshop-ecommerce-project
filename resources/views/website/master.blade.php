@@ -212,7 +212,7 @@
                     <!-- EXTRA NAV -->
                     <div class="extra-nav">
                         <div class="extra-cell">
-                            <a href="contact-us.html" class="btn btn-primary btnhover">Get In Touch</a>
+                            <a href="{{route('contact')}}" class="btn btn-primary btnhover">Get In Touch</a>
                         </div>
                     </div>
 

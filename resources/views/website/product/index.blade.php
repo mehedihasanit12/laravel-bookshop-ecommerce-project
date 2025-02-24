@@ -87,11 +87,12 @@
                     <div class="col-xl-8">
                         <div class="product-description tabs-site-button">
                             <ul class="nav nav-tabs">
-                                <li><a data-bs-toggle="tab" href="#graphic-design-1" class="active">Details Book</a></li>
-                                <li><a data-bs-toggle="tab" href="#developement-1">Customer Reviews</a></li>
+                                <li><a data-bs-toggle="tab" href="#detail-book" class="active">Details Book</a></li>
+                                <li><a data-bs-toggle="tab" href="#book-description">Book Description</a></li>
+                                <li><a data-bs-toggle="tab" href="#customer-review">Customer Reviews</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div id="graphic-design-1" class="tab-pane show active">
+                                <div id="detail-book" class="tab-pane show active">
                                     <table class="table border book-overview">
                                         <tr>
                                             <th>Book Title</th>
@@ -143,7 +144,12 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div id="developement-1" class="tab-pane">
+                                <div id="book-description" class="tab-pane">
+                                    <div class="card card-body">
+                                        {!! $book->long_description !!}
+                                    </div>
+                                </div>
+                                <div id="customer-review" class="tab-pane">
                                     <div class="clear" id="comment-list">
                                         <div class="post-comments comments-area style-1 clearfix">
                                             <h4 class="comments-title">4 COMMENTS</h4>
