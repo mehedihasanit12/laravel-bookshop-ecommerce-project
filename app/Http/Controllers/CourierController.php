@@ -13,7 +13,7 @@ class CourierController extends Controller
     public function index()
     {
         return view('admin.courier.index', [
-            'couriers' => Courier::all()
+            'couriers' => Courier::latest()->get()
         ]);
     }
 

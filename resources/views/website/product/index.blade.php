@@ -50,7 +50,7 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li><span>Publisher</span>{{$book->publisher->name}}</li>
+                                            <li><span>Publisher</span><a style="color: #1a1668" href="{{route('product-publisher', ['id' => $book->publisher_id])}}">{{$book->publisher->name}}</a></li>
                                             <li><span>Year</span>{{$book->published_date}}</li>
                                         </ul>
                                     </div>

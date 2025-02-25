@@ -10,7 +10,7 @@ class BookSeriesController extends Controller
 {
     public function index()
     {
-        return view('admin.book-series.index', ['book_seriess' =>  BookSeries::all()]);
+        return view('admin.book-series.index', ['book_seriess' =>  BookSeries::latest()->get()]);
     }
 
     public function create()

@@ -9,7 +9,7 @@ class AuthorController extends Controller
 {
     public function index()
     {
-        return view('admin.author.index', ['authors' =>  Author::all()]);
+        return view('admin.author.index', ['authors' =>  Author::latest()->get()]);
     }
 
     public function create()

@@ -16,7 +16,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        return view('admin.book.index', ['books' => Book::all()]);
+        return view('admin.book.index', ['books' => Book::latest()->get()]);
     }
 
     public function create()

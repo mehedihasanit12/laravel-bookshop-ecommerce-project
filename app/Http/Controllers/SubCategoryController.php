@@ -11,7 +11,7 @@ class SubCategoryController extends Controller
 
     public function index()
     {
-        return view('admin.sub-category.index',['sub_categories' => SubCategory::all()]);
+        return view('admin.sub-category.index',['sub_categories' => SubCategory::latest()->get()]);
     }
 
     public function create()
