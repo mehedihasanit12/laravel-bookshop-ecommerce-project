@@ -332,7 +332,7 @@
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{route('comment.index')}}" class="menu-link">
+                            <a href="{{route('admin-comment.index')}}" class="menu-link">
                                 <div>Manage Comment</div>
                             </a>
                         </li>

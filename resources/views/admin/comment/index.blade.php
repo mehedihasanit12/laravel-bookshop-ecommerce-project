@@ -33,7 +33,7 @@
                                 <td>{{$comment->comment}}</td>
 
                                 <td>
-                                    <form style="display: inline" action="{{route('comment.destroy', $comment->id)}}" method="POST">
+                                    <form style="display: inline" action="{{route('admin-comment.destroy', $comment->id)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit" class="btn btn-danger btn-sm" onclick=" return confirm('Are you sure to delete this!')">

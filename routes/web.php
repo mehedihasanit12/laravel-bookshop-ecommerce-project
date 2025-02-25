@@ -177,5 +177,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::resource('user', UserController::class);
 
-    Route::resource('comment', AdminCommentController::class);
+    Route::resource('admin-comment', AdminCommentController::class);
 });
