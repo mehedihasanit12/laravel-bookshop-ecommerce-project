@@ -15,7 +15,7 @@ Ensure you have the following installed on your system:
 ### Steps to Install
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/laravel-bookshop-ecommerce-project.git
+   git clone https://github.com/mehedihasanit12/laravel-bookshop-ecommerce-project.git
    ```
 2. Navigate into the project directory:
    ```sh
@@ -58,12 +58,7 @@ Ensure you have the following installed on your system:
 - Access the app at `http://127.0.0.1:8000/`
 - Use the admin dashboard for book & order management.
 
-## Contributing
-Pull requests are welcome. Please follow Laravel coding standards.
-
-## License
-This project is licensed under the MIT License.
 
 ## Contact
-For any queries, contact [your email] or open an issue in the repository.
+For any queries, contact [mehedihasanit242@gmail.com] or open an issue in the repository.
 
