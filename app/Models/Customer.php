@@ -78,7 +78,7 @@ class Customer extends Model
 
         if ($request->password)
         {
-            self::$customer->password = $request->password;
+            self::$customer->password = bcrypt($request->password);
         }
 
         self::$customer->name = $request->name;
