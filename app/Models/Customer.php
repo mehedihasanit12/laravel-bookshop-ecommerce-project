@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Session;
 
 class Customer extends Model
 {
@@ -58,7 +59,9 @@ class Customer extends Model
 
         if ($request->file('image'))
         {
-            self::$customer->image = self::getImageUrl($request);
+            self::$imageUrl = self::getImageUrl($request);
+            self::$customer->image = self::$imageUrl;
+            Session::put('image', self::$imageUrl);
         }
 
         if ($request->blood_group)
